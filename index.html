@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MAZ-AVA Technologies | Experts IT, télécom et sécurité</title>
 <meta name="description" content="Offre globale tout-en-un, à 360° et clé en main : infogérance, bureautique, réseaux, téléphonie opérateur, cloud, cybersécurité, sécurité électronique, infrastructure et intelligence artificielle, avec un interlocuteur unique.">
-<meta name="theme-color" content="#FFFCF3">
+<meta name="theme-color" content="#070F24">
 <link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,37 +301,39 @@ details p { padding: 0 44px 24px 0; }
   .marques-groupe li { width: calc(50% - 6px); padding: 12px 14px; }
 }
 
-/* Lumière : "mazava" signifie clair, éclairé. Halo doré autour du point lumineux du logo */
-::selection { background: #FFE08F; color: var(--ink); }
-.site-header { background: rgba(255, 252, 243, 0.92); }
-.hero {
-  background:
-    radial-gradient(48% 105% at 74% 30%, rgba(255, 205, 86, .62), rgba(255, 205, 86, 0) 66%),
-    radial-gradient(60% 80% at 0% 100%, rgba(25, 211, 197, .13), rgba(25, 211, 197, 0) 70%),
-    linear-gradient(180deg, #FFFBEC 0%, #FFFFFF 100%);
-}
+/* Lumière dans la nuit : "mazava" signifie clair, éclairé. Fond nuit, halo et boutons jaune ampoule */
+:root { color-scheme:dark; --fond:#070F24; --fond-doux:#0C1830; --ink:#F4F7FF; --texte:#E6ECFA; --doux:#A9B7D4; --trait:#1B2A4F; --trait-fort:#31456F; --lien:#FFD84A; --lumiere:#FFD84A; }
+::selection { background:#FFD84A; color:#0B1530; }
+:focus-visible { outline-color:#FFD84A; }
+.site-header { background: rgba(7,15,36,.88); }
+.brand-name, h1, h2, h3 { color: var(--ink); }
+.hero { background: radial-gradient(48% 105% at 74% 30%, rgba(255,196,40,.30), rgba(255,196,40,0) 66%), radial-gradient(50% 80% at 0% 0%, rgba(47,107,255,.24), rgba(47,107,255,0) 70%), radial-gradient(45% 70% at 0% 100%, rgba(25,211,197,.14), rgba(25,211,197,0) 70%), #070F24; }
 .mosaique { isolation: isolate; }
-.mosaique::before {
-  content: ""; position: absolute; left: 50%; top: calc(38% - 31px);
-  width: 620px; height: 620px; margin: -310px 0 0 -310px; border-radius: 50%;
-  z-index: -1; pointer-events: none;
-  background: radial-gradient(circle closest-side,
-    rgba(255, 255, 255, .96) 0 3%, rgba(255, 211, 92, .60) 3% 6%, rgba(255, 211, 92, .34) 6% 13%,
-    rgba(255, 211, 92, .22) 13% 27%, rgba(255, 211, 92, .13) 27% 46%, rgba(255, 211, 92, .07) 46% 70%,
-    rgba(255, 211, 92, 0) 70% 100%);
-}
-.lumiere {
-  background: radial-gradient(circle, #FFFFFF 0%, #FFE9A8 45%, var(--or) 100%);
-  box-shadow: 0 0 0 7px rgba(255, 255, 255, .75), 0 0 0 9px rgba(255, 200, 61, .55), 0 0 26px 8px rgba(255, 200, 61, .75);
-}
-.btn-plein, .nav .nav-contact, .chat-bouton { background: linear-gradient(135deg, var(--or-clair), var(--or-vif)); color: var(--ink); box-shadow: 0 6px 18px rgba(255, 185, 46, .35); }
-.btn-plein:hover, .nav .nav-contact:hover, .chat-bouton:hover { background: linear-gradient(135deg, #FFE08F, #FFC24D); color: var(--ink); }
-.chat-mail { background: linear-gradient(135deg, var(--or-clair), var(--or-vif)); border-color: var(--or-vif); }
-.etapes li::before { background: radial-gradient(circle at 35% 30%, #FFE9A8, var(--or)); box-shadow: 0 0 0 6px rgba(255, 200, 61, .25), 0 0 0 14px rgba(255, 200, 61, .10); }
-.entete h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; margin-top: 18px; background: linear-gradient(90deg, var(--or), var(--turquoise)); }
-.marques-groupe li, .formulaire { background: var(--fond); }
-.appel { background: radial-gradient(55% 90% at 12% 0%, rgba(255, 205, 86, .45), rgba(255, 205, 86, 0) 70%), var(--fond-doux); }
-@media (max-width: 600px) { .mosaique::before { width: 440px; height: 440px; margin: -220px 0 0 -220px; } }
+.mosaique::before { content:""; position:absolute; left:50%; top:calc(38% - 31px); width:620px; height:620px; margin:-310px 0 0 -310px; border-radius:50%; z-index:-1; pointer-events:none; background: radial-gradient(circle closest-side, rgba(255,247,214,.98) 0 3%, rgba(255,216,74,.70) 3% 6%, rgba(255,216,74,.42) 6% 13%, rgba(255,216,74,.26) 13% 27%, rgba(255,216,74,.15) 27% 46%, rgba(255,216,74,.07) 46% 70%, rgba(255,216,74,0) 70% 100%); }
+@media (max-width:600px){ .mosaique::before { width:440px; height:440px; margin:-220px 0 0 -220px; } }
+.lumiere { background: radial-gradient(circle, #FFFFFF 0%, #FFF1B0 42%, #FFD84A 100%); box-shadow: 0 0 0 6px rgba(255,247,214,.85), 0 0 0 9px rgba(255,216,74,.6), 0 0 34px 12px rgba(255,216,74,.85); }
+.btn-plein, .nav .nav-contact, .chat-bouton { background: linear-gradient(135deg, #FFE878, #FFC61A); color:#0B1530; box-shadow: 0 0 0 1px rgba(255,232,120,.55), 0 8px 28px rgba(255,198,26,.45); }
+.btn-plein:hover, .nav .nav-contact:hover, .chat-bouton:hover { background: linear-gradient(135deg, #FFF0A0, #FFD24A); color:#0B1530; box-shadow: 0 0 0 1px rgba(255,240,160,.7), 0 10px 34px rgba(255,210,74,.6); }
+.chat-mail { background: linear-gradient(135deg, #FFE878, #FFC61A); border-color:#FFC61A; color:#0B1530; }
+.btn-ligne { color: var(--texte); }
+.btn-ligne:hover { border-color:#FFD84A; }
+.etapes li::before { background: radial-gradient(circle at 35% 30%, #FFF3B8, #FFD84A); color:#0B1530; box-shadow: 0 0 0 6px rgba(255,216,74,.22), 0 0 22px 6px rgba(255,216,74,.35); }
+.entete h2::after { content:""; display:block; width:56px; height:4px; border-radius:2px; margin-top:18px; background: linear-gradient(90deg, #FFD84A, #19D3C5); }
+.msg-user, .chat-saisie button { background:#1F3A78; color:#fff; }
+.marques-groupe li { background:#fff; border-color:transparent; color:#0E1D3F; }
+.formulaire, .chat-panneau { background: var(--fond-doux); }
+.appel { background: radial-gradient(55% 90% at 12% 0%, rgba(255,196,40,.22), rgba(255,196,40,0) 70%), var(--fond-doux); }
+.champ input:focus, .champ textarea:focus { outline-color: rgba(255,216,74,.5); border-color:#FFD84A; }
+.hero { background: radial-gradient(42% 95% at 74% 32%, rgba(255,205,60,.55), rgba(255,205,60,0) 68%), radial-gradient(50% 80% at 0% 0%, rgba(47,107,255,.20), rgba(47,107,255,0) 70%), radial-gradient(45% 70% at 0% 100%, rgba(25,211,197,.10), rgba(25,211,197,0) 70%), #050B1C; }
+.mosaique::before { width:760px; height:760px; margin:-380px 0 0 -380px; background: radial-gradient(circle closest-side, #FFFFFF 0 3%, rgba(255,240,150,.98) 3% 6%, rgba(255,216,74,.80) 6% 11%, rgba(255,210,60,.55) 11% 20%, rgba(255,205,50,.36) 20% 32%, rgba(255,200,40,.20) 32% 48%, rgba(255,196,30,.09) 48% 72%, rgba(255,196,30,0) 72% 100%); }
+.mosaique::after { content:""; position:absolute; left:50%; top:calc(38% - 31px); width:760px; height:760px; margin:-380px 0 0 -380px; border-radius:50%; z-index:-1; pointer-events:none; opacity:.35; background: repeating-conic-gradient(from 0deg, rgba(255,226,120,.9) 0 2deg, rgba(255,226,120,0) 2deg 15deg); -webkit-mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); }
+@media (max-width:600px){ .mosaique::before, .mosaique::after { width:500px; height:500px; margin:-250px 0 0 -250px; } }
+.lumiere { background: radial-gradient(circle, #FFFFFF 0%, #FFF6C4 45%, #FFE066 100%); box-shadow: 0 0 0 6px rgba(255,250,220,.95), 0 0 0 10px rgba(255,224,102,.75), 0 0 40px 16px rgba(255,214,70,.95), 0 0 120px 50px rgba(255,200,40,.55); }
+.btn-plein, .nav .nav-contact, .chat-bouton { box-shadow: 0 0 0 1px rgba(255,240,150,.7), 0 0 26px 4px rgba(255,205,50,.55), 0 10px 34px rgba(255,190,20,.45); }
+.etapes li::before { box-shadow: 0 0 0 6px rgba(255,216,74,.25), 0 0 30px 10px rgba(255,216,74,.5); }
+.entete h2::after { box-shadow: 0 0 14px 2px rgba(255,216,74,.7); }
+.appel { background: radial-gradient(60% 100% at 12% 0%, rgba(255,200,50,.38), rgba(255,200,50,0) 70%), var(--fond-doux); }
+@media (max-width: 600px) { .hero { background: radial-gradient(90% 40% at 50% 78%, rgba(255,205,60,.40), rgba(255,205,60,0) 70%), radial-gradient(70% 40% at 0% 0%, rgba(47,107,255,.20), rgba(47,107,255,0) 70%), #050B1C; } }
 @media (prefers-reduced-motion: no-preference) {
   .mosaique::before { animation: halo 1.6s .5s cubic-bezier(.2, .7, .2, 1) both; }
   @keyframes halo { from { opacity: 0; transform: scale(.55); } to { opacity: 1; transform: none; } }
