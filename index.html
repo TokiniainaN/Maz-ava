@@ -350,12 +350,11 @@ figure .k-tq, figure [stroke="#19D3C5"] { stroke: #FFC83D; filter: drop-shadow(0
 figure .lt { fill: #FFEDB0; }
 figure .bg2 { fill: #FFF7E0; }
 /* Mot d'origine : Mazava = lumière, clarté */
-.origine { text-align: center; padding-block: clamp(48px, 7vw, 88px); }
-.origine .wrap { max-width: 860px; }
-.origine h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); max-width: none; }
-.origine h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; margin: 18px auto 0; background: linear-gradient(90deg, #FFD84A, #FFB92E); box-shadow: 0 0 14px 2px rgba(255,216,74,.7); }
-.origine p { text-wrap: balance; margin: 26px auto 0; font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.5; color: var(--ink); max-width: 36em; }
-.origine strong { color: #FFD84A; font-weight: 600; text-shadow: 0 0 18px rgba(255,216,74,.55); }
+.origine { position: relative; text-align: center; padding-block: clamp(64px, 9vw, 120px); background: radial-gradient(50% 90% at 50% 50%, rgba(255,205,60,.20), rgba(255,205,60,0) 70%); }
+.origine .wrap { max-width: 980px; }
+.origine .wrap::before { content: ""; display: block; width: 14px; height: 14px; margin: 0 auto 30px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #FFF3B0 45%, #FFD24A 100%); box-shadow: 0 0 0 6px rgba(255,243,176,.25), 0 0 30px 12px rgba(255,205,60,.75), 0 0 90px 30px rgba(255,200,40,.35); }
+.origine p { margin: 0 auto; font-family: var(--titres); font-weight: 500; font-size: clamp(1.45rem, 3vw, 2.3rem); line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; max-width: 30em; }
+.origine strong { color: #FFD84A; font-weight: 700; text-shadow: 0 0 22px rgba(255,216,74,.65); }
 </style>
 </head>
 <body>
@@ -417,7 +416,6 @@ figure .bg2 { fill: #FFF7E0; }
 
   <section class="origine" id="origine">
     <div class="wrap">
-      <h2>C'est par là que tout commence</h2>
       <p><strong>Mazava</strong> signifie «&nbsp;lumière&nbsp;» et «&nbsp;clarté&nbsp;». C'est l'esprit de notre entreprise&nbsp;: offrir à nos clients un service clé en main, clair, simple et serein, à chaque étape.</p>
     </div>
   </section>
