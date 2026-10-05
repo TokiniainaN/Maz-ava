@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MAZ-AVA Technologies | Experts IT, télécom et sécurité</title>
 <meta name="description" content="Offre globale tout-en-un, à 360° et clé en main : infogérance, bureautique, réseaux, téléphonie opérateur, cloud, cybersécurité, sécurité électronique, infrastructure et intelligence artificielle, avec un interlocuteur unique.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#FFFCF3">
 <link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +13,17 @@
 <style>
 :root {
   --fond: #FFFFFF;
-  --fond-doux: #F2F5FA;
+  --fond-doux: #FFF8E6;
   --ink: #0E1D3F;
   --texte: #0E1D3F;
   --doux: #51627F;
-  --trait: #DCE3EF;
-  --trait-fort: #B9C6DD;
+  --trait: #F0E6CC;
+  --trait-fort: #D9C9A0;
   --bleu: #2F6BFF;
   --turquoise: #19D3C5;
+  --or: #FFC83D;
+  --or-vif: #FFB92E;
+  --or-clair: #FFD66B;
   --lien: #087A72;
   --degrade: linear-gradient(120deg, var(--bleu), var(--turquoise));
   --titres: "Familjen Grotesk", "Segoe UI", system-ui, sans-serif;
@@ -296,6 +299,42 @@ details p { padding: 0 44px 24px 0; }
   .actions .btn { width: 100%; text-align: center; }
   .mosaique { height: 300px; gap: 10px; }
   .marques-groupe li { width: calc(50% - 6px); padding: 12px 14px; }
+}
+
+/* Lumière : "mazava" signifie clair, éclairé. Halo doré autour du point lumineux du logo */
+::selection { background: #FFE08F; color: var(--ink); }
+.site-header { background: rgba(255, 252, 243, 0.92); }
+.hero {
+  background:
+    radial-gradient(48% 105% at 74% 30%, rgba(255, 205, 86, .62), rgba(255, 205, 86, 0) 66%),
+    radial-gradient(60% 80% at 0% 100%, rgba(25, 211, 197, .13), rgba(25, 211, 197, 0) 70%),
+    linear-gradient(180deg, #FFFBEC 0%, #FFFFFF 100%);
+}
+.mosaique { isolation: isolate; }
+.mosaique::before {
+  content: ""; position: absolute; left: 50%; top: calc(38% - 31px);
+  width: 620px; height: 620px; margin: -310px 0 0 -310px; border-radius: 50%;
+  z-index: -1; pointer-events: none;
+  background: radial-gradient(circle closest-side,
+    rgba(255, 255, 255, .96) 0 3%, rgba(255, 211, 92, .60) 3% 6%, rgba(255, 211, 92, .34) 6% 13%,
+    rgba(255, 211, 92, .22) 13% 27%, rgba(255, 211, 92, .13) 27% 46%, rgba(255, 211, 92, .07) 46% 70%,
+    rgba(255, 211, 92, 0) 70% 100%);
+}
+.lumiere {
+  background: radial-gradient(circle, #FFFFFF 0%, #FFE9A8 45%, var(--or) 100%);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, .75), 0 0 0 9px rgba(255, 200, 61, .55), 0 0 26px 8px rgba(255, 200, 61, .75);
+}
+.btn-plein, .nav .nav-contact, .chat-bouton { background: linear-gradient(135deg, var(--or-clair), var(--or-vif)); color: var(--ink); box-shadow: 0 6px 18px rgba(255, 185, 46, .35); }
+.btn-plein:hover, .nav .nav-contact:hover, .chat-bouton:hover { background: linear-gradient(135deg, #FFE08F, #FFC24D); color: var(--ink); }
+.chat-mail { background: linear-gradient(135deg, var(--or-clair), var(--or-vif)); border-color: var(--or-vif); }
+.etapes li::before { background: radial-gradient(circle at 35% 30%, #FFE9A8, var(--or)); box-shadow: 0 0 0 6px rgba(255, 200, 61, .25), 0 0 0 14px rgba(255, 200, 61, .10); }
+.entete h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; margin-top: 18px; background: linear-gradient(90deg, var(--or), var(--turquoise)); }
+.marques-groupe li, .formulaire { background: var(--fond); }
+.appel { background: radial-gradient(55% 90% at 12% 0%, rgba(255, 205, 86, .45), rgba(255, 205, 86, 0) 70%), var(--fond-doux); }
+@media (max-width: 600px) { .mosaique::before { width: 440px; height: 440px; margin: -220px 0 0 -220px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .mosaique::before { animation: halo 1.6s .5s cubic-bezier(.2, .7, .2, 1) both; }
+  @keyframes halo { from { opacity: 0; transform: scale(.55); } to { opacity: 1; transform: none; } }
 }
 </style>
 </head>
