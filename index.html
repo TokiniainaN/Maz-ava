@@ -326,14 +326,14 @@ details p { padding: 0 44px 24px 0; }
 .formulaire, .chat-panneau { background: var(--fond-doux); }
 .appel { background: radial-gradient(55% 90% at 12% 0%, rgba(255,196,40,.22), rgba(255,196,40,0) 70%), var(--fond-doux); }
 .champ input:focus, .champ textarea:focus { outline-color: rgba(255,216,74,.5); border-color:#FFD84A; }
-.hero { background: radial-gradient(42% 95% at 74% 32%, rgba(255,205,60,.55), rgba(255,205,60,0) 68%), radial-gradient(50% 80% at 0% 0%, rgba(47,107,255,.20), rgba(47,107,255,0) 70%), radial-gradient(45% 70% at 0% 100%, rgba(25,211,197,.10), rgba(25,211,197,0) 70%), #050B1C; }
-.mosaique::before { width:760px; height:760px; margin:-380px 0 0 -380px; background: radial-gradient(circle closest-side, #FFFFFF 0 3%, rgba(255,240,150,.98) 3% 6%, rgba(255,216,74,.80) 6% 11%, rgba(255,210,60,.55) 11% 20%, rgba(255,205,50,.36) 20% 32%, rgba(255,200,40,.20) 32% 48%, rgba(255,196,30,.09) 48% 72%, rgba(255,196,30,0) 72% 100%); }
-.mosaique::after { content:""; position:absolute; left:50%; top:calc(38% - 31px); width:760px; height:760px; margin:-380px 0 0 -380px; border-radius:50%; z-index:-1; pointer-events:none; opacity:.35; background: repeating-conic-gradient(from 0deg, rgba(255,226,120,.9) 0 2deg, rgba(255,226,120,0) 2deg 15deg); -webkit-mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); }
+.hero { background: radial-gradient(42% 95% at 74% 32%, rgba(255,205,60,.38), rgba(255,205,60,0) 68%), radial-gradient(50% 80% at 0% 0%, rgba(47,107,255,.20), rgba(47,107,255,0) 70%), radial-gradient(45% 70% at 0% 100%, rgba(25,211,197,.10), rgba(25,211,197,0) 70%), #050B1C; }
+.mosaique::before { width:680px; height:680px; margin:-340px 0 0 -340px; background: radial-gradient(circle closest-side, #FFFFFF 0 3%, rgba(255,240,150,.98) 3% 6%, rgba(255,216,74,.80) 6% 11%, rgba(255,210,60,.55) 11% 20%, rgba(255,205,50,.36) 20% 32%, rgba(255,200,40,.20) 32% 48%, rgba(255,196,30,.09) 48% 72%, rgba(255,196,30,0) 72% 100%); }
+.mosaique::after { content:""; position:absolute; left:50%; top:calc(38% - 31px); width:760px; height:760px; margin:-380px 0 0 -380px; border-radius:50%; z-index:-1; pointer-events:none; opacity:.2; background: repeating-conic-gradient(from 0deg, rgba(255,226,120,.9) 0 2deg, rgba(255,226,120,0) 2deg 15deg); -webkit-mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); mask: radial-gradient(circle closest-side, transparent 8%, #000 14%, transparent 70%); }
 @media (max-width:600px){ .mosaique::before, .mosaique::after { width:500px; height:500px; margin:-250px 0 0 -250px; } }
-.lumiere { background: radial-gradient(circle, #FFFFFF 0%, #FFF6C4 45%, #FFE066 100%); box-shadow: 0 0 0 6px rgba(255,250,220,.95), 0 0 0 10px rgba(255,224,102,.75), 0 0 40px 16px rgba(255,214,70,.95), 0 0 120px 50px rgba(255,200,40,.55); }
-.btn-plein, .nav .nav-contact, .chat-bouton { box-shadow: 0 0 0 1px rgba(255,240,150,.7), 0 0 26px 4px rgba(255,205,50,.55), 0 10px 34px rgba(255,190,20,.45); }
-.etapes li::before { box-shadow: 0 0 0 6px rgba(255,216,74,.25), 0 0 30px 10px rgba(255,216,74,.5); }
-.entete h2::after { box-shadow: 0 0 14px 2px rgba(255,216,74,.7); }
+.lumiere { background: radial-gradient(circle, #FFFFFF 0%, #FFF6C4 45%, #FFE066 100%); box-shadow: 0 0 0 6px rgba(255,250,220,.95), 0 0 0 10px rgba(255,224,102,.75), 0 0 30px 10px rgba(255,214,70,.85), 0 0 80px 28px rgba(255,200,40,.35); }
+.btn-plein, .nav .nav-contact, .chat-bouton { box-shadow: 0 0 0 1px rgba(255,240,150,.7), 0 6px 20px rgba(255,190,20,.30); }
+.etapes li::before { box-shadow: 0 0 0 6px rgba(255,216,74,.25), 0 0 16px 3px rgba(255,216,74,.3); }
+.entete h2::after { box-shadow: 0 0 8px 1px rgba(255,216,74,.4); }
 .appel { background: radial-gradient(60% 100% at 12% 0%, rgba(255,200,50,.38), rgba(255,200,50,0) 70%), var(--fond-doux); }
 @media (max-width: 600px) { .hero { background: radial-gradient(90% 40% at 50% 78%, rgba(255,205,60,.40), rgba(255,205,60,0) 70%), radial-gradient(70% 40% at 0% 0%, rgba(47,107,255,.20), rgba(47,107,255,0) 70%), #050B1C; } }
 @media (prefers-reduced-motion: no-preference) {
@@ -350,11 +350,11 @@ figure .k-tq, figure [stroke="#19D3C5"] { stroke: #FFC83D; filter: drop-shadow(0
 figure .lt { fill: #FFEDB0; }
 figure .bg2 { fill: #FFF7E0; }
 /* Mot d'origine : Mazava = lumière, clarté */
-.origine { position: relative; text-align: center; padding-block: clamp(64px, 9vw, 120px); background: radial-gradient(50% 90% at 50% 50%, rgba(255,205,60,.20), rgba(255,205,60,0) 70%); }
+.origine { position: relative; text-align: center; padding-block: clamp(64px, 9vw, 120px); background: radial-gradient(50% 90% at 50% 50%, rgba(255,205,60,.13), rgba(255,205,60,0) 70%); }
 .origine .wrap { max-width: 980px; }
 .origine .wrap::before { content: ""; display: block; width: 14px; height: 14px; margin: 0 auto 30px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #FFF3B0 45%, #FFD24A 100%); box-shadow: 0 0 0 6px rgba(255,243,176,.25), 0 0 30px 12px rgba(255,205,60,.75), 0 0 90px 30px rgba(255,200,40,.35); }
 .origine p { margin: 0 auto; font-family: var(--titres); font-weight: 500; font-size: clamp(1.45rem, 3vw, 2.3rem); line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; max-width: 30em; }
-.origine strong { color: #FFD84A; font-weight: 700; text-shadow: 0 0 22px rgba(255,216,74,.65); }
+.origine strong { color: #FFD84A; font-weight: 700; text-shadow: 0 0 16px rgba(255,216,74,.4); }
 </style>
 </head>
 <body>
@@ -474,7 +474,7 @@ figure .bg2 { fill: #FFF7E0; }
         <article class="service">
           <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Téléphone IP de bureau avec ondes sonores et indicateur de signal"><rect class="bg1" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="bl" x="90" y="130" width="14" height="24" rx="4"/><rect class="bl" x="112" y="112" width="14" height="42" rx="4"/><rect class="bl" x="134" y="94" width="14" height="60" rx="4"/><rect class="gr" x="156" y="76" width="14" height="78" rx="4"/><rect class="wh" x="80" y="290" width="84" height="40" rx="20"/><text class="tx" x="122" y="318" text-anchor="middle" font-size="20" fill="#0E1D3F">SIP</text><rect class="nv" x="200" y="150" width="200" height="170" rx="22"/><rect class="lt" x="224" y="172" width="92" height="50" rx="8"/><rect class="nv" x="236" y="186" width="52" height="8" rx="4" opacity=".7"/><rect class="nv" x="236" y="202" width="34" height="8" rx="4" opacity=".4"/><circle class="lb" cx="240" cy="246" r="9"/><circle class="lb" cx="270" cy="246" r="9"/><circle class="lb" cx="300" cy="246" r="9"/><circle class="lb" cx="240" cy="270" r="9"/><circle class="lb" cx="270" cy="270" r="9"/><circle class="lb" cx="300" cy="270" r="9"/><circle class="lb" cx="240" cy="294" r="9"/><circle class="lb" cx="270" cy="294" r="9"/><circle class="lb" cx="300" cy="294" r="9"/><rect class="bl" x="336" y="178" width="40" height="14" rx="7"/><rect class="bl" x="336" y="204" width="40" height="14" rx="7"/><rect class="bl" x="336" y="230" width="40" height="14" rx="7"/><rect class="bl" x="186" y="116" width="228" height="34" rx="17"/><circle class="bl" cx="208" cy="146" r="22"/><circle class="bl" cx="392" cy="146" r="22"/><path class="k-tq" stroke-width="7" opacity="1" d="M469.3 212.0A30 30 0 0 1 469.3 258.0"/><path class="k-tq" stroke-width="7" opacity="0.7" d="M483.4 195.2A52 52 0 0 1 483.4 274.8"/><path class="k-tq" stroke-width="7" opacity="0.45" d="M497.6 178.3A74 74 0 0 1 497.6 291.7"/></svg></figure>
           <h3>Téléphonie opérateur</h3>
-          <p>Opérateurs, trunks SIP, portabilité des numéros et migration vers 3CX : toute la voix de l'entreprise, gérée de bout en bout.</p>
+          <p>Opérateurs, trunks SIP, portabilité des numéros et standards téléphoniques Yeastar : toute la voix de l'entreprise, gérée de bout en bout.</p>
         </article>
         <article class="service">
           <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nuage informatique avec flèches d'échange de données et serveur"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><g fill="#fff" opacity=".9"><rect x="70" y="100" width="110" height="34" rx="17"/><circle cx="108" cy="100" r="22"/><circle cx="142" cy="92" r="26"/></g><g class="bl"><rect x="205" y="190" width="250" height="66" rx="33"/><circle cx="265" cy="188" r="52"/><circle cx="335" cy="152" r="70"/><circle cx="400" cy="190" r="48"/></g><circle fill="#fff" opacity=".35" cx="318" cy="120" r="8"/><circle fill="#fff" opacity=".25" cx="352" cy="104" r="5"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="270" y1="266" x2="270" y2="290"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="345" y1="266" x2="345" y2="290"/><circle cx="270" cy="318" r="26" fill="#fff"/><path class="k-tq" stroke-width="6" d="M270 331V305M259 316l11-11 11 11"/><circle cx="345" cy="318" r="26" fill="#fff"/><path class="k-bl" stroke-width="6" d="M345 305v26M334 320l11 11 11-11"/><rect class="nv" x="472" y="236" width="76" height="28" rx="7"/><rect class="nv" x="472" y="270" width="76" height="28" rx="7"/><circle class="tq" cx="488" cy="250" r="4"/><circle class="tq" cx="488" cy="284" r="4"/></svg></figure>
@@ -766,7 +766,7 @@ figure .bg2 { fill: #FFF7E0; }
     services: { libelle: 'Nos services', texte: "Nous couvrons huit domaines : infogérance et maintenance, bureautique et postes de travail, réseaux, téléphonie opérateur, cloud, cybersécurité, sécurité électronique et infrastructure. Nous proposons aussi des services d'intelligence artificielle.", lien: ['#services', 'Voir les services'] },
     infogerance: { libelle: 'Infogérance', texte: "Supervision, support aux utilisateurs et maintenance du parc, avec un interlocuteur technique identifié.", lien: ['#services', 'Voir les services'] },
     reseaux: { libelle: 'Réseaux', texte: "Conception, déploiement et sécurisation des réseaux locaux, du Wi-Fi et des liaisons entre sites.", lien: ['#services', 'Voir les services'] },
-    telephonie: { libelle: 'Téléphonie opérateur', texte: "Nous gérons la voix de l'entreprise de bout en bout : opérateurs, trunks SIP, portabilité des numéros et migration vers 3CX.", lien: ['#services', 'Voir les services'] },
+    telephonie: { libelle: 'Téléphonie opérateur', texte: "Nous gérons la voix de l'entreprise de bout en bout : opérateurs, trunks SIP, portabilité des numéros et standards téléphoniques Yeastar.", lien: ['#services', 'Voir les services'] },
     cloud: { libelle: 'Cloud', texte: "Migration et exploitation de Microsoft 365 et des environnements cloud, sauvegardes comprises.", lien: ['#services', 'Voir les services'] },
     securite: { libelle: 'Cybersécurité', texte: "Audits, protection des postes, pare-feu, chiffrement et sauvegardes, pour réduire les risques et savoir ce qui est en place.", lien: ['#services', 'Voir les services'] },
     bureautique: { libelle: 'Bureautique', texte: "Ordinateurs, imprimantes et copieurs, messagerie et outils collaboratifs : fourniture, installation et support au quotidien.", lien: ['#services', 'Voir les services'] },
@@ -780,7 +780,7 @@ figure .bg2 { fill: #FFF7E0; }
   var PUCES = ['services', 'telephonie', 'ia', 'methode', 'devis', 'contact'];
   var MOTS = [
     ['ia', /\bia\b|intelligence|agent|transcri|\bstt\b|\btts\b|vocal|voix|chatbot/],
-    ['telephonie', /telephon|3cx|\bsip\b|operateur|portabilit|numero|standard/],
+    ['telephonie', /telephon|yeastar|\bsip\b|operateur|portabilit|numero|standard/],
     ['securitee', /videosurveillance|camera|alarme|intrusion|controle d'acces|badge|interphone|securite electronique/],
     ['bureautique', /bureautique|poste|ordinateur|imprimante|copieur|messagerie|outlook/],
     ['securite', /securite|cyber|pare-feu|antivirus|chiffrement|audit/],
