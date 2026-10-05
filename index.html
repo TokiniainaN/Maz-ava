@@ -193,6 +193,8 @@ details p { padding: 0 44px 24px 0; }
 .champ input:focus, .champ textarea:focus { outline: 3px solid rgba(47,107,255,.35); outline-offset: 1px; border-color: var(--bleu); }
 .champ .invalide { border-color: #C62828; }
 .formulaire-note { color: var(--doux); font-size: .9rem; }
+.piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.formulaire-ok { color: #1B7F4B; font-weight: 600; font-size: .95rem; }
 .formulaire-erreur { color: #B3261E; font-weight: 600; font-size: .95rem; }
 .formulaire .btn { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
 .appel h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); max-width: 18ch; }
@@ -338,6 +340,10 @@ details p { padding: 0 44px 24px 0; }
   .mosaique::before { animation: halo 1.6s .5s cubic-bezier(.2, .7, .2, 1) both; }
   @keyframes halo { from { opacity: 0; transform: scale(.55); } to { opacity: 1; transform: none; } }
 }
+.formulaire-erreur { color: #FF9A8F; }
+.formulaire-erreur a { color: #FFD84A; text-decoration: underline; }
+.formulaire-ok { color: #6EE7A8; }
+.champ .invalide { border-color: #FF7A70; }
 </style>
 </head>
 <body>
@@ -383,7 +389,7 @@ details p { padding: 0 44px 24px 0; }
         <h1>Une seule équipe d'experts pour tout votre système d'information.</h1>
         <p>Informatique, bureautique, télécom, cybersécurité, sécurité électronique et intelligence artificielle : MAZ-AVA Technologies prend tout en charge, de l'audit à l'exploitation, avec un interlocuteur unique. Nos experts vous expliquent chaque choix en langage clair.</p>
         <div class="actions">
-          <a class="btn btn-plein" href="mailto:contact@maz-ava.fr?subject=Demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AEntreprise%20%3A%0ANombre%20de%20sites%20%3A%0AVotre%20besoin%20%3A%0A%0ACordialement">Demander un diagnostic</a>
+          <a class="btn btn-plein" href="#contact" data-objet="Demande de diagnostic" data-modele="Bonjour,&#10;&#10;Entreprise :&#10;Nombre de sites :&#10;Votre besoin :&#10;&#10;Cordialement">Demander un diagnostic</a>
           <a class="btn btn-ligne" href="#services">Voir nos services</a>
         </div>
       </div>
@@ -473,7 +479,7 @@ details p { padding: 0 44px 24px 0; }
           <p>Serveurs, virtualisation et locaux techniques : architecture, mise en place et modernisation.</p>
         </article>
       </div>
-      <p class="invitation-ligne">Un besoin à cheval sur plusieurs domaines ?<a href="mailto:contact@maz-ava.fr">Décrivez-le nous</a></p>
+      <p class="invitation-ligne">Un besoin à cheval sur plusieurs domaines ?<a href="#contact" data-objet="Description de projet" data-modele="Bonjour,&#10;&#10;Entreprise :&#10;Description du projet :&#10;Échéance souhaitée :&#10;&#10;Cordialement">Décrivez-le nous</a></p>
     </div>
   </section>
 
@@ -633,15 +639,19 @@ details p { padding: 0 44px 24px 0; }
           <div><dt>E-mail</dt><dd><a href="mailto:contact@maz-ava.fr">contact@maz-ava.fr</a></dd></div>
         </dl>
       </div>
-      <form class="formulaire" id="formulaire" novalidate>
+      <form class="formulaire" id="formulaire" action="envoyer.php" method="post" novalidate>
+        <input type="hidden" name="objet" id="f-objet" value="Demande de contact">
+        <input type="hidden" name="t" id="f-t" value="">
+        <div class="piege" aria-hidden="true"><label for="f-site">Ne pas remplir</label><input id="f-site" name="site_web" type="text" tabindex="-1" autocomplete="off"></div>
         <div class="champs-duo">
           <div class="champ"><label for="f-nom">Nom</label><input id="f-nom" name="nom" type="text" autocomplete="family-name" required></div>
           <div class="champ"><label for="f-prenom">Prénom</label><input id="f-prenom" name="prenom" type="text" autocomplete="given-name" required></div>
         </div>
         <div class="champ"><label for="f-mail">Adresse e-mail</label><input id="f-mail" name="mail" type="email" autocomplete="email" required></div>
         <div class="champ"><label for="f-message">Message</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
-        <p class="formulaire-note">Les informations saisies servent uniquement à traiter votre demande.</p>
+        <p class="formulaire-note">Les informations saisies servent uniquement à traiter votre demande. Elles ne sont pas conservées sur le site.</p>
         <p class="formulaire-erreur" id="f-erreur" role="alert" hidden></p>
+        <p class="formulaire-ok" id="f-ok" role="status" hidden></p>
         <button class="btn btn-plein" type="submit">Envoyer la demande</button>
       </form>
     </div>
@@ -768,10 +778,6 @@ details p { padding: 0 44px 24px 0; }
 
   function normaliser(t) { return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   function defiler() { fil.scrollTop = fil.scrollHeight; }
-  function lienMail(question) {
-    var corps = 'Bonjour,\n\n' + (question ? question + '\n\n' : '') + 'Entreprise :\nNombre de sites :\nVotre besoin :\n\nCordialement';
-    return 'mailto:contact@maz-ava.fr?subject=' + encodeURIComponent('Question via le site') + '&body=' + encodeURIComponent(corps);
-  }
   function dire(texte, qui) {
     var d = document.createElement('div');
     d.className = 'msg msg-' + qui;
@@ -796,7 +802,11 @@ details p { padding: 0 44px 24px 0; }
     });
     var mail = document.createElement('a');
     mail.className = 'chat-mail';
-    mail.href = lienMail(question);
+    mail.href = '#contact';
+    mail.addEventListener('click', function () {
+      if (!panneau.hidden) document.getElementById('chat-bouton').click();
+      if (window.mazPrefill) window.mazPrefill('Question via le site', 'Bonjour,\n\n' + (question ? question + '\n\n' : '') + 'Entreprise :\nVotre besoin :\n\nCordialement');
+    });
     mail.textContent = "Écrire à l'équipe";
     zone.appendChild(mail);
     fil.appendChild(zone);
@@ -861,20 +871,51 @@ details p { padding: 0 44px 24px 0; }
 (function () {
   var f = document.getElementById('formulaire');
   if (!f) return;
-  var err = document.getElementById('f-erreur');
+  var err = document.getElementById('f-erreur'), ok = document.getElementById('f-ok');
+  var champObjet = document.getElementById('f-objet'), champT = document.getElementById('f-t');
+  var msg = document.getElementById('f-message'), bouton = f.querySelector('button[type=submit]');
+  var t0 = Date.now();
+  window.mazPrefill = function (objet, modele) {
+    champObjet.value = objet || 'Demande de contact';
+    if (modele && msg.value.trim() === '') msg.value = modele;
+    t0 = Date.now();
+    ok.hidden = true;
+    setTimeout(function () { document.getElementById('f-nom').focus({ preventScroll: true }); }, 500);
+  };
+  document.querySelectorAll('a[data-objet]').forEach(function (a) {
+    a.addEventListener('click', function () { window.mazPrefill(a.getAttribute('data-objet'), a.getAttribute('data-modele')); });
+  });
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var ch = ['f-nom', 'f-prenom', 'f-mail', 'f-message'].map(function (id) { return document.getElementById(id); });
     var ko = false;
     ch.forEach(function (c) {
-      var ok = c.value.trim() !== '' && (c.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value.trim()));
-      c.classList.toggle('invalide', !ok);
-      if (!ok) ko = true;
+      var valide = c.value.trim() !== '' && (c.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value.trim()));
+      c.classList.toggle('invalide', !valide);
+      if (!valide) ko = true;
     });
+    ok.hidden = true;
     if (ko) { err.textContent = 'Merci de renseigner tous les champs avec une adresse e-mail valide.'; err.hidden = false; return; }
     err.hidden = true;
-    var corps = 'Nom : ' + ch[0].value.trim() + '\nPrénom : ' + ch[1].value.trim() + '\nE-mail : ' + ch[2].value.trim() + '\n\n' + ch[3].value.trim();
-    window.location.href = 'mailto:contact@maz-ava.fr?subject=' + encodeURIComponent('Demande de contact via le site') + '&body=' + encodeURIComponent(corps);
+    bouton.disabled = true; bouton.textContent = 'Envoi en cours…';
+    function echec(m) {
+      err.textContent = (m || "L'envoi n'a pas abouti.") + ' ';
+      var corps = 'Nom : ' + ch[0].value.trim() + '\nPrénom : ' + ch[1].value.trim() + '\nE-mail : ' + ch[2].value.trim() + '\n\n' + ch[3].value.trim();
+      var a = document.createElement('a');
+      a.href = 'mailto:contact@maz-ava.fr?subject=' + encodeURIComponent(champObjet.value) + '&body=' + encodeURIComponent(corps);
+      a.textContent = 'Ouvrir ma messagerie';
+      err.appendChild(a);
+      err.hidden = false;
+    }
+    champT.value = Date.now() - t0;
+    fetch('envoyer.php', { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (d) {
+        if (d && d.ok) { ok.textContent = d.message; ok.hidden = false; f.reset(); champObjet.value = 'Demande de contact'; }
+        else echec(d && d.message);
+      })
+      .catch(function () { echec(); })
+      .then(function () { bouton.disabled = false; bouton.textContent = 'Envoyer la demande'; });
   });
 })();
 </script>
