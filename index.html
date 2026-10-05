@@ -248,11 +248,13 @@ details p { padding: 0 44px 24px 0; }
 .engagements li strong { display: block; font-family: var(--titres); font-size: 1.08rem; color: var(--ink); margin-bottom: 6px; }
 .engagements li span { color: var(--doux); }
 
-.marques { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; }
-.marques-groupe h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--doux); margin-bottom: 14px; }
+.marques { display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--trait-fort); }
+.marques-groupe { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 12px 32px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--trait); }
+.marques-groupe h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--doux); }
 .marques-groupe ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.marques-groupe li { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 20px; border: 1px solid var(--trait); border-radius: 14px; background: var(--fond); font-weight: 600; color: var(--ink); }
-.marques-groupe li img { height: 28px; width: auto; max-width: 96px; object-fit: contain; }
+.marques-groupe li { display: flex; align-items: center; justify-content: center; flex: none; width: 190px; height: 88px; padding: 14px 20px; border: 1px solid var(--trait); border-radius: 14px; background: var(--fond); font-weight: 600; color: var(--ink); text-align: center; line-height: 1.2; }
+.marques-groupe li img { width: 100%; max-width: 150px; height: 52px; object-fit: contain; }
+.marques-groupe li.avec-logo span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 /* Adaptatif */
 @media (max-width: 1000px) {
   .liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -260,6 +262,7 @@ details p { padding: 0 44px 24px 0; }
   .engagements ul { grid-template-columns: 1fr; }
   .appel .wrap { grid-template-columns: 1fr; }
   .marques { grid-template-columns: 1fr; }
+  .marques-groupe { grid-template-columns: 1fr; gap: 14px; }
   .etapes li:nth-child(2)::after { display: none; }
 }
 @media (max-width: 860px) {
@@ -292,6 +295,7 @@ details p { padding: 0 44px 24px 0; }
   .etapes li::after { display: none; }
   .actions .btn { width: 100%; text-align: center; }
   .mosaique { height: 300px; gap: 10px; }
+  .marques-groupe li { width: calc(50% - 6px); padding: 12px 14px; }
 }
 </style>
 </head>
@@ -503,39 +507,48 @@ details p { padding: 0 44px 24px 0; }
       </div>
       <div class="marques">
         <div class="marques-groupe">
-          <h3>Pare-feu</h3>
+          <h3>Bureautique et postes de travail</h3>
           <ul>
-            <li><img src="logos/zyxel.svg" alt="" loading="lazy" onerror="this.remove()"><span>Zyxel</span></li>
-            <li><img src="logos/sonicwall.svg" alt="" loading="lazy" onerror="this.remove()"><span>SonicWall</span></li>
+            <li><img src="logos/hp.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>HP</span></li>
           </ul>
         </div>
         <div class="marques-groupe">
-          <h3>Réseau et Wi-Fi</h3>
+          <h3>Réseaux et pare-feu</h3>
           <ul>
-            <li><img src="logos/unifi.svg" alt="" loading="lazy" onerror="this.remove()"><span>UniFi</span></li>
-            <li><img src="logos/hpe.svg" alt="" loading="lazy" onerror="this.remove()"><span>HPE</span></li>
+            <li><img src="logos/zyxel.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Zyxel</span></li>
+            <li><img src="logos/sonicwall.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>SonicWall</span></li>
+            <li><img src="logos/aruba.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Aruba</span></li>
           </ul>
         </div>
         <div class="marques-groupe">
-          <h3>Sécurité des postes et de la messagerie</h3>
+          <h3>Téléphonie opérateur</h3>
           <ul>
-            <li><img src="logos/sentinelone.svg" alt="" loading="lazy" onerror="this.remove()"><span>SentinelOne</span></li>
-            <li><img src="logos/bitdefender.svg" alt="" loading="lazy" onerror="this.remove()"><span>Bitdefender</span></li>
-            <li><img src="logos/hornetsecurity.svg" alt="" loading="lazy" onerror="this.remove()"><span>Hornetsecurity</span></li>
-          </ul>
-        </div>
-        <div class="marques-groupe">
-          <h3>Téléphonie</h3>
-          <ul>
-            <li><img src="logos/3cx.svg" alt="" loading="lazy" onerror="this.remove()"><span>3CX</span></li>
-            <li><img src="logos/yealink.svg" alt="" loading="lazy" onerror="this.remove()"><span>Yealink</span></li>
-            <li><img src="logos/yeastar.svg" alt="" loading="lazy" onerror="this.remove()"><span>Yeastar</span></li>
+            <li><img src="logos/yealink.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Yealink</span></li>
+            <li><img src="logos/yeastar.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Yeastar</span></li>
+            <li><img src="logos/unyc.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>unyc</span></li>
           </ul>
         </div>
         <div class="marques-groupe">
           <h3>Cloud</h3>
           <ul>
-            <li><img src="logos/microsoft.svg" alt="" loading="lazy" onerror="this.remove()"><span>Microsoft 365 et Azure</span></li>
+            <li><img src="logos/microsoft.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Microsoft 365 et Azure</span></li>
+            <li><img src="logos/ovhcloud.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>OVHcloud</span></li>
+            <li><img src="logos/leviia.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Leviia</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Cybersécurité</h3>
+          <ul>
+            <li><img src="logos/sentinelone.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>SentinelOne</span></li>
+            <li><img src="logos/bitdefender.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Bitdefender</span></li>
+            <li><img src="logos/hornetsecurity.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Hornetsecurity</span></li>
+            <li><img src="logos/veeam.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Veeam</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Sécurité électronique</h3>
+          <ul>
+            <li><img src="logos/hikvision.png" alt="" loading="lazy" onload="this.parentNode.classList.add('avec-logo')" onerror="this.remove()"><span>Hikvision</span></li>
           </ul>
         </div>
       </div>
