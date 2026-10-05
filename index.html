@@ -344,12 +344,18 @@ details p { padding: 0 44px 24px 0; }
 .formulaire-erreur a { color: #FFD84A; text-decoration: underline; }
 .formulaire-ok { color: #6EE7A8; }
 .champ .invalide { border-color: #FF7A70; }
+/* Illustrations : le vert devient jaune ampoule, avec un léger reflet */
+figure .tq, figure [fill="#19D3C5"] { fill: url(#ampoule); filter: drop-shadow(0 0 3px rgba(255,190,40,.55)); }
+figure .k-tq, figure [stroke="#19D3C5"] { stroke: #FFC83D; filter: drop-shadow(0 0 2px rgba(255,190,40,.5)); }
+figure .lt { fill: #FFEDB0; }
+figure .bg2 { fill: #FFF7E0; }
 </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
+    <radialGradient id="ampoule" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".45" stop-color="#FFD24A"/><stop offset="1" stop-color="#FFB92E"/></radialGradient>
     <linearGradient id="gm" gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="56" y2="56">
       <stop offset="0" stop-color="#2F6BFF"/>
       <stop offset="1" stop-color="#19D3C5"/>
