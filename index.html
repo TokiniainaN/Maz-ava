@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAZ-AVA Technologies | Experts IT, télécom et sécurité</title>
+<meta name="description" content="Offre globale tout-en-un, à 360° et clé en main : infogérance, bureautique, réseaux, téléphonie opérateur, cloud, cybersécurité, sécurité électronique, infrastructure et intelligence artificielle, avec un interlocuteur unique.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fond: #FFFFFF;
+  --fond-doux: #F2F5FA;
+  --ink: #0E1D3F;
+  --texte: #0E1D3F;
+  --doux: #51627F;
+  --trait: #DCE3EF;
+  --trait-fort: #B9C6DD;
+  --bleu: #2F6BFF;
+  --turquoise: #19D3C5;
+  --lien: #087A72;
+  --degrade: linear-gradient(120deg, var(--bleu), var(--turquoise));
+  --titres: "Familjen Grotesk", "Segoe UI", system-ui, sans-serif;
+  --texte-police: "Public Sans", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--texte-police);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+figure svg { display: block; width: 100%; height: 100%; }
+figure .nv { fill: #0E1D3F; } figure .nv2 { fill: #22345F; } figure .bl { fill: #2F6BFF; } figure .tq { fill: #19D3C5; }
+figure .lb { fill: #DCE8FF; } figure .lt { fill: #BDF3EE; } figure .wh { fill: #fff; } figure .am { fill: #FFB020; }
+figure .gr { fill: #BFD0F5; } figure .bg1 { fill: #E8F0FF; } figure .bg2 { fill: #E3F8F5; }
+figure .tx { font-family: var(--titres); font-weight: 700; }
+figure [class^="k-"] { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+figure .k-nv { stroke: #0E1D3F; } figure .k-wh { stroke: #fff; } figure .k-tq { stroke: #19D3C5; } figure .k-bl { stroke: #2F6BFF; }
+figure .k-gr { stroke: #BFD0F5; } figure .k-am { stroke: #FFB020; }
+:focus-visible { outline: 2px solid var(--bleu); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+h1, h2, h3 { font-family: var(--titres); font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; }
+p { color: var(--doux); max-width: 58ch; }
+section { padding: clamp(64px, 9vw, 116px) 0; }
+.entete { margin-bottom: 48px; }
+.entete h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); max-width: 22ch; }
+.entete p { margin-top: 16px; }
+
+/* En-tête */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--trait);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand svg { width: 34px; height: 34px; }
+.brand-name { font-family: var(--titres); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.02em; line-height: 1; }
+.brand-name small { display: block; font-family: var(--texte-police); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--doux); margin-top: 4px; }
+.nav { display: flex; align-items: center; gap: 30px; }
+.nav a { text-decoration: none; color: var(--doux); font-weight: 500; font-size: 0.97rem; transition: color .15s; }
+.nav a:hover { color: var(--texte); }
+.nav .nav-contact { color: var(--ink); background: var(--turquoise); padding: 9px 18px; border-radius: 999px; font-weight: 600; }
+.nav .nav-contact:hover { color: var(--ink); background: #5FE6DA; }
+.burger { display: none; background: none; border: 1px solid var(--trait-fort); color: var(--texte); width: 44px; height: 44px; border-radius: 10px; cursor: pointer; }
+.burger span, .burger span::before, .burger span::after { display: block; width: 18px; height: 2px; background: currentColor; margin: auto; position: relative; transition: transform .2s, background .2s; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; }
+.burger span::before { top: -6px; }
+.burger span::after { top: 6px; }
+.burger[aria-expanded="true"] span { background: transparent; }
+.burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+/* Boutons */
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; padding: 14px 26px; border-radius: 999px; transition: background .15s, border-color .15s; }
+.btn-plein { background: var(--turquoise); color: var(--ink); }
+.btn-plein:hover { background: #5FE6DA; }
+.btn-ligne { border: 1px solid var(--trait-fort); color: var(--texte); }
+.btn-ligne:hover { border-color: var(--ink); }
+
+/* Accueil : la mosaïque reprend le logo (deux montants hauts, un court, un point) */
+.hero { padding-top: clamp(40px, 7vw, 88px); padding-bottom: clamp(40px, 6vw, 72px); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.025em; }
+.hero p { font-size: 1.15rem; margin-top: 26px; }
+.mosaique { position: relative; display: grid; grid-template-columns: 1fr 0.82fr 1fr; gap: 14px; align-items: end; height: clamp(340px, 40vw, 500px); }
+.panneau { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid var(--trait); background: var(--fond-doux); margin: 0; }
+.p1, .p3 { height: 100%; }
+.p2 { height: 62%; }
+.lumiere { position: absolute; left: 50%; top: calc(38% - 42px); width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--degrade); box-shadow: 0 0 0 8px rgba(25, 211, 197, 0.18), 0 0 30px 6px rgba(25, 211, 197, 0.35); }
+@media (prefers-reduced-motion: no-preference) {
+  .panneau { animation: lever .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .p3 { animation-delay: .12s; }
+  .p2 { animation-delay: .3s; }
+  .lumiere { animation: allumer .7s 1s ease-out both; }
+  @keyframes lever { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+  @keyframes allumer { from { opacity: 0; transform: scale(.2); } to { opacity: 1; transform: none; } }
+}
+
+/* Un seul interlocuteur */
+.interlocuteur { background: var(--fond-doux); border-block: 1px solid var(--trait); }
+.interlocuteur .wrap { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(36px, 6vw, 80px); align-items: center; }
+.interlocuteur figure { aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: var(--fond); border: 1px solid var(--trait); }
+.interlocuteur h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+.comparaison { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 36px; margin-top: 36px; }
+.comparaison h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.comparaison ul { list-style: none; }
+.comparaison li { position: relative; padding: 0 0 14px 26px; color: var(--doux); font-size: 0.98rem; line-height: 1.5; }
+.comparaison li::before { position: absolute; left: 0; top: 0; font-weight: 700; }
+.comparaison .avant li::before { content: "\2212"; color: var(--doux); }
+.comparaison .apres li { color: var(--texte); }
+.comparaison .apres li::before { content: "+"; color: var(--lien); }
+
+/* Intelligence artificielle */
+.ia { background: var(--fond-doux); border-block: 1px solid var(--trait); }
+.ia .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(36px, 6vw, 80px); align-items: center; }
+.ia h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); max-width: 22ch; }
+.ia .wrap > div > p { margin-top: 16px; }
+.ia-liste { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: 32px; }
+.ia-liste li { border-top: 1px solid var(--trait-fort); padding: 20px 0 24px; }
+.ia-liste h3 { font-size: 1.15rem; }
+.ia-liste p { margin-top: 6px; font-size: 0.98rem; }
+.ia figure { aspect-ratio: 3 / 2; border-radius: 18px; overflow: hidden; border: 1px solid var(--trait); background: var(--fond); }
+
+/* Services */
+.liste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px 28px; }
+.service figure { aspect-ratio: 3 / 2; border-radius: 14px; overflow: hidden; background: var(--fond-doux); border: 1px solid var(--trait); }
+.service h3 { font-size: 1.2rem; margin-top: 18px; }
+.service p { margin-top: 8px; font-size: .97rem; }
+.invitation-ligne { margin-top: 48px; color: var(--doux); }
+.invitation-ligne a { color: var(--lien); font-weight: 600; text-underline-offset: 4px; margin-left: 8px; }
+
+/* Méthode : une vraie suite d'étapes, donc numérotée */
+.etapes { list-style: none; counter-reset: etape; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.etapes li { counter-increment: etape; position: relative; padding-top: 68px; }
+.etapes li::before {
+  content: counter(etape);
+  position: absolute; top: 0; left: 0; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--titres); font-weight: 600; font-size: 1.15rem; color: var(--ink);
+  background: var(--turquoise);
+}
+.etapes li:not(:last-child)::after { content: ""; position: absolute; top: 22px; left: 60px; right: -18px; height: 2px; background: linear-gradient(90deg, var(--trait-fort), rgba(185, 198, 221, 0)); }
+.etapes h3 { font-size: 1.25rem; }
+.etapes p { margin-top: 8px; font-size: 1rem; }
+
+
+/* Environnements maîtrisés */
+.environnements { background: var(--fond-doux); border-block: 1px solid var(--trait); }
+.puces { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+.puces li { padding: 11px 20px; border: 1px solid var(--trait); border-radius: 999px; color: var(--texte); font-weight: 500; background: var(--fond); }
+
+/* Questions */
+.questions .wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: clamp(36px, 6vw, 80px); align-items: start; }
+.questions h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+.questions .entete { margin-bottom: 0; }
+details { border-top: 1px solid var(--trait); }
+details:last-child { border-bottom: 1px solid var(--trait); }
+summary { list-style: none; cursor: pointer; padding: 22px 44px 22px 0; font-family: var(--titres); font-weight: 600; font-size: 1.2rem; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 400; color: var(--lien); transition: transform .2s; }
+details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+details p { padding: 0 44px 24px 0; }
+
+/* Appel à l'action */
+.appel { background: var(--fond-doux); border-top: 1px solid var(--trait); }
+.appel .wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(36px, 6vw, 80px); align-items: start; }
+.appel-tel { margin-top: 28px; }
+.coordonnees { margin-top: 32px; border-top: 1px solid var(--trait); }
+.coordonnees div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--trait); }
+.coordonnees dt { color: var(--doux); font-size: .9rem; }
+.coordonnees dd a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.coordonnees dd a:hover { color: var(--lien); }
+.formulaire { background: var(--fond); border: 1px solid var(--trait); border-radius: 18px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 18px; }
+.champs-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.champ label { display: block; font-size: .9rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.champ input, .champ textarea { width: 100%; font: inherit; font-size: 1rem; padding: 12px 14px; border: 1px solid var(--trait-fort); border-radius: 10px; color: var(--texte); background: var(--fond); }
+.champ textarea { resize: vertical; min-height: 130px; }
+.champ input:focus, .champ textarea:focus { outline: 3px solid rgba(47,107,255,.35); outline-offset: 1px; border-color: var(--bleu); }
+.champ .invalide { border-color: #C62828; }
+.formulaire-note { color: var(--doux); font-size: .9rem; }
+.formulaire-erreur { color: #B3261E; font-weight: 600; font-size: .95rem; }
+.formulaire .btn { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.appel h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); max-width: 18ch; }
+.appel p { margin-top: 12px; }
+
+/* Pied de page */
+.site-footer { border-top: 1px solid var(--trait); padding: 52px 0 36px; }
+.pied { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); gap: 40px; }
+.pied h3 { font-size: 1rem; margin-bottom: 14px; }
+.pied ul { list-style: none; }
+.pied li { margin-bottom: 8px; }
+.pied a { color: var(--doux); text-decoration: none; }
+.pied a:hover { color: var(--texte); }
+.pied .brand { margin-bottom: 14px; }
+.pied p { font-size: 0.97rem; }
+.copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--trait); color: var(--doux); font-size: 0.9rem; max-width: none; }
+
+/* Assistant de chat */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.chat { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.chat-bouton { display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer; background: var(--turquoise); color: var(--ink); font: 600 1rem var(--texte-police); padding: 14px 20px 14px 16px; border-radius: 999px; box-shadow: 0 10px 30px rgba(14, 29, 63, 0.2); transition: background .15s; }
+.chat-bouton:hover { background: #5FE6DA; }
+.chat-bouton svg { width: 24px; height: 24px; flex: none; }
+.chat-panneau { width: min(380px, calc(100vw - 40px)); max-height: min(560px, calc(100vh - 120px)); display: flex; flex-direction: column; background: var(--fond); border: 1px solid var(--trait); border-radius: 18px; overflow: hidden; box-shadow: 0 16px 48px rgba(14, 29, 63, 0.2); }
+.chat-panneau[hidden] { display: none; }
+.chat-entete { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--trait); background: var(--fond-doux); }
+.chat-entete svg { width: 30px; height: 30px; flex: none; }
+.chat-entete strong { display: block; font-family: var(--titres); font-size: 1.05rem; line-height: 1.2; }
+.chat-entete span { font-size: 0.82rem; color: var(--doux); }
+.chat-fermer { margin-left: auto; background: none; border: 0; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.6rem; line-height: 1; color: var(--texte); flex: none; }
+.chat-fermer:hover { background: var(--trait); }
+.chat-fil { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 200px; }
+.msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 0.95rem; line-height: 1.5; }
+.msg p { color: inherit; max-width: none; }
+.msg-bot { background: var(--fond-doux); color: var(--texte); border-bottom-left-radius: 4px; align-self: flex-start; }
+.msg-user { background: var(--ink); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+.chat-lien { display: inline-block; margin-top: 8px; color: var(--lien); font-weight: 600; text-underline-offset: 3px; }
+.chat-puces { display: flex; flex-wrap: wrap; gap: 8px; }
+.chat-puces button, .chat-mail { font: 500 0.88rem var(--texte-police); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--trait-fort); background: var(--fond); color: var(--texte); cursor: pointer; text-decoration: none; }
+.chat-puces button:hover { background: var(--fond-doux); border-color: var(--ink); }
+.chat-mail { background: var(--turquoise); border-color: var(--turquoise); color: var(--ink); font-weight: 600; }
+.chat-saisie { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--trait); }
+.chat-saisie input { flex: 1; min-width: 0; font: inherit; font-size: 0.95rem; padding: 10px 14px; border: 1px solid var(--trait-fort); border-radius: 999px; color: var(--texte); background: var(--fond); }
+.chat-saisie button { font: 600 0.92rem var(--texte-police); border: 0; border-radius: 999px; padding: 10px 16px; background: var(--ink); color: #fff; cursor: pointer; }
+.chat-note { padding: 0 16px 12px; font-size: 0.76rem; color: var(--doux); max-width: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .chat-panneau { animation: chat-ouvre .22s ease-out; }
+  @keyframes chat-ouvre { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+}
+@media print { .chat { display: none; } }
+
+.engagements { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--trait); }
+.engagements h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); max-width: 26ch; }
+.engagements ul { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 36px; margin-top: 32px; }
+.engagements li { padding-left: 18px; border-left: 3px solid var(--turquoise); }
+.engagements li strong { display: block; font-family: var(--titres); font-size: 1.08rem; color: var(--ink); margin-bottom: 6px; }
+.engagements li span { color: var(--doux); }
+
+.marques { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; }
+.marques-groupe h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--doux); margin-bottom: 14px; }
+.marques-groupe ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+.marques-groupe li { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 20px; border: 1px solid var(--trait); border-radius: 14px; background: var(--fond); font-weight: 600; color: var(--ink); }
+.marques-groupe li img { height: 28px; width: auto; max-width: 96px; object-fit: contain; }
+/* Adaptatif */
+@media (max-width: 1000px) {
+  .liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+  .engagements ul { grid-template-columns: 1fr; }
+  .appel .wrap { grid-template-columns: 1fr; }
+  .marques { grid-template-columns: 1fr; }
+  .etapes li:nth-child(2)::after { display: none; }
+}
+@media (max-width: 860px) {
+  .burger { display: block; }
+  .nav {
+    display: none; position: absolute; top: 68px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--fond); border-bottom: 1px solid var(--trait); padding: 8px 20px 20px;
+  }
+  .nav.ouvert { display: flex; }
+  .nav a { padding: 14px 0; border-bottom: 1px solid var(--trait); }
+  .nav .nav-contact { margin-top: 16px; text-align: center; border-bottom: 0; padding: 13px 18px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .mosaique { height: 340px; }
+  .interlocuteur .wrap { grid-template-columns: 1fr; }
+  .interlocuteur figure { max-width: 380px; }
+  .ia .wrap { grid-template-columns: 1fr; }
+  .questions .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .pied { grid-template-columns: 1fr 1fr; }
+  .pied > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .chat { right: 12px; bottom: 12px; left: 12px; }
+  .chat-bouton { align-self: flex-end; padding: 14px; }
+  .chat-bouton span { display: none; }
+  .chat-panneau { width: 100%; max-height: calc(100vh - 96px); }
+  .chat-saisie input { font-size: 1rem; }
+  .liste, .etapes, .comparaison, .ia-liste, .engagements ul, .champs-duo { grid-template-columns: 1fr; }
+  .coordonnees div { grid-template-columns: 90px 1fr; }
+  .etapes li::after { display: none; }
+  .actions .btn { width: 100%; text-align: center; }
+  .mosaique { height: 300px; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gm" gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="56" y2="56">
+      <stop offset="0" stop-color="#2F6BFF"/>
+      <stop offset="1" stop-color="#19D3C5"/>
+    </linearGradient>
+    <symbol id="marque" viewBox="0 0 64 64">
+      <g fill="none" stroke="url(#gm)" stroke-width="6" stroke-linecap="round">
+        <line x1="14" y1="12" x2="14" y2="52"/>
+        <line x1="50" y1="12" x2="50" y2="52"/>
+        <line x1="32" y1="36" x2="32" y2="52"/>
+      </g>
+      <circle cx="32" cy="21" r="5" fill="url(#gm)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#accueil" aria-label="MAZ-AVA Technologies, accueil">
+      <svg aria-hidden="true"><use href="#marque"/></svg>
+      <span class="brand-name">MAZ-AVA<small>Technologies</small></span>
+    </a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav class="nav" id="menu" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#ia">IA</a>
+      <a href="#methode">Méthode</a>
+      <a href="#questions">Questions</a>
+      <a class="nav-contact" href="#contact">Nous contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="wrap">
+      <div>
+        <h1>Une seule équipe d'experts pour tout votre système d'information.</h1>
+        <p>Informatique, bureautique, télécom, cybersécurité, sécurité électronique et intelligence artificielle : MAZ-AVA Technologies prend tout en charge, de l'audit à l'exploitation, avec un interlocuteur unique. Nos experts vous expliquent chaque choix en langage clair.</p>
+        <div class="actions">
+          <a class="btn btn-plein" href="mailto:contact@maz-ava.fr?subject=Demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AEntreprise%20%3A%0ANombre%20de%20sites%20%3A%0AVotre%20besoin%20%3A%0A%0ACordialement">Demander un diagnostic</a>
+          <a class="btn btn-ligne" href="#services">Voir nos services</a>
+        </div>
+      </div>
+      <div class="mosaique">
+        <figure class="panneau p1"><svg viewBox="0 0 200 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Baie de serveurs"><rect class="bg1" width="200" height="500"/><circle cx="120" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="450" r="70" fill="#fff" opacity=".45"/><rect class="nv" x="30" y="36" width="140" height="428" rx="16"/><rect class="nv2" x="44" y="54" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="77" r="5"/><rect fill="#3A4F80" x="74" y="71" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="112" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="135" r="5"/><rect fill="#3A4F80" x="74" y="129" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="170" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="193" r="5"/><rect fill="#3A4F80" x="74" y="187" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="228" width="112" height="46" rx="8"/><circle class="am" cx="60" cy="251" r="5"/><rect fill="#3A4F80" x="74" y="245" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="286" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="309" r="5"/><rect fill="#3A4F80" x="74" y="303" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="344" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="367" r="5"/><rect fill="#3A4F80" x="74" y="361" width="64" height="12" rx="6"/><rect class="nv2" x="44" y="402" width="112" height="46" rx="8"/><circle class="tq" cx="60" cy="425" r="5"/><rect fill="#3A4F80" x="74" y="419" width="64" height="12" rx="6"/></svg></figure>
+        <figure class="panneau p2"><svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Puce d'intelligence artificielle et onde sonore"><rect class="bg2" width="200" height="300"/><circle cx="120" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="250" r="70" fill="#fff" opacity=".45"/><rect class="nv" x="55" y="60" width="90" height="90" rx="18"/><rect class="bl" x="43" y="76" width="14" height="8" rx="4"/><rect class="bl" x="143" y="76" width="14" height="8" rx="4"/><rect class="bl" x="43" y="100" width="14" height="8" rx="4"/><rect class="bl" x="143" y="100" width="14" height="8" rx="4"/><rect class="bl" x="43" y="124" width="14" height="8" rx="4"/><rect class="bl" x="143" y="124" width="14" height="8" rx="4"/><rect class="bl" x="76" y="48" width="8" height="14" rx="4"/><rect class="bl" x="76" y="148" width="8" height="14" rx="4"/><rect class="bl" x="100" y="48" width="8" height="14" rx="4"/><rect class="bl" x="100" y="148" width="8" height="14" rx="4"/><rect class="bl" x="124" y="48" width="8" height="14" rx="4"/><rect class="bl" x="124" y="148" width="8" height="14" rx="4"/><text class="tx" x="100" y="118" text-anchor="middle" font-size="36" fill="#fff">IA</text><rect class="bl" x="34" y="215.0" width="7" height="20" rx="3.5"/><rect class="tq" x="46" y="205.0" width="7" height="40" rx="3.5"/><rect class="bl" x="58" y="193.0" width="7" height="64" rx="3.5"/><rect class="tq" x="70" y="208.0" width="7" height="34" rx="3.5"/><rect class="bl" x="82" y="185.0" width="7" height="80" rx="3.5"/><rect class="tq" x="94" y="200.0" width="7" height="50" rx="3.5"/><rect class="bl" x="106" y="190.0" width="7" height="70" rx="3.5"/><rect class="tq" x="118" y="207.0" width="7" height="36" rx="3.5"/><rect class="bl" x="130" y="197.0" width="7" height="56" rx="3.5"/><rect class="tq" x="142" y="212.0" width="7" height="26" rx="3.5"/><rect class="bl" x="154" y="217.0" width="7" height="16" rx="3.5"/></svg></figure>
+        <figure class="panneau p3"><svg viewBox="0 0 200 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bouclier de protection et cadenas"><rect class="bg1" width="200" height="500"/><circle cx="120" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="450" r="70" fill="#fff" opacity=".45"/><path class="nv" d="M100 60L170 86V190C170 250 140 292 100 312C60 292 30 250 30 190V86Z"/><path class="bl" d="M100 84L150 103V188C150 232 128 262 100 278C72 262 50 232 50 188V103Z"/><path class="k-wh" stroke-width="12" d="M72 188L94 210L130 164"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="100" y1="322" x2="100" y2="334"/><rect class="wh" x="62" y="372" width="76" height="58" rx="12"/><path class="k-nv" stroke-width="8" d="M78 372v-16a22 22 0 0 1 44 0v16"/><circle class="nv" cx="100" cy="396" r="7"/><rect class="nv" x="97" y="398" width="6" height="16" rx="3"/><circle class="tq" cx="172" cy="360" r="8"/><circle class="am" cx="28" cy="420" r="8"/></svg></figure>
+        <span class="lumiere" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="interlocuteur" id="interlocuteur">
+    <div class="wrap">
+      <figure><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Un seul contact au centre, relié aux huit domaines : supervision, réseau, téléphonie, sécurité, cloud et infrastructure"><rect class="bg1" width="400" height="500"/><circle cx="320" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="450" r="70" fill="#fff" opacity=".45"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="200" y2="85"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="343" y2="167.5"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="343" y2="332.5"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="200" y2="415"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="57" y2="332.5"/><line class="k-gr" stroke-width="4" stroke-dasharray="1 11" x1="200" y1="250" x2="57" y2="167.5"/><circle cx="200" cy="85" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="343" cy="167.5" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="343" cy="332.5" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="200" cy="415" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="57" cy="332.5" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="57" cy="167.5" r="38" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><rect class="nv" x="184" y="71" width="32" height="22" rx="3"/><rect class="nv" x="194" y="95" width="12" height="4"/><rect class="nv" x="188" y="99" width="24" height="3" rx="1.5"/><path class="k-bl" stroke-width="3" d="M343 156L330 178M343 156L356 178M330 178H356"/><circle class="bl" cx="343" cy="156" r="5"/><circle class="bl" cx="330" cy="178" r="5"/><circle class="bl" cx="356" cy="178" r="5"/><rect class="nv" x="331" y="316" width="24" height="34" rx="5"/><rect class="tq" x="335" y="321" width="16" height="18" rx="2"/><path class="nv" d="M200 397l17 6v13c0 11-8 17-17 21-9-4-17-10-17-21v-13z"/><path class="k-wh" stroke-width="3" d="M192 414l6 6 11-12"/><g class="bl"><rect x="39" y="330" width="36" height="15" rx="7.5"/><circle cx="51" cy="330" r="8"/><circle cx="63" cy="326" r="11"/></g><rect class="nv" x="41" y="154" width="32" height="12" rx="3"/><rect class="nv" x="41" y="170" width="32" height="12" rx="3"/><circle class="tq" cx="47" cy="160" r="2"/><circle class="tq" cx="47" cy="176" r="2"/><circle cx="200" cy="250" r="86" fill="#fff" stroke="#19D3C5" stroke-width="6"/><circle class="nv" cx="200" cy="228" r="26"/><path class="nv" d="M146 306C146 272 170 258 200 258C230 258 254 272 254 306Z"/><path class="k-tq" stroke-width="6" d="M168 228a32 32 0 0 1 64 0"/><rect class="tq" x="161" y="222" width="10" height="20" rx="5"/><rect class="tq" x="229" y="222" width="10" height="20" rx="5"/></svg></figure>
+      <div>
+        <h2>Une offre à 360°, un interlocuteur unique</h2>
+        <p style="margin-top:16px">Réseau, téléphonie, bureautique, cybersécurité, sécurité électronique, cloud, intelligence artificielle : nous couvrons l'ensemble de votre informatique, de votre télécom et de votre sécurité, de l'audit à l'exploitation. Vous n'avez qu'un seul contact, et le projet est livré clé en main.</p>
+        <div class="comparaison">
+          <div class="avant">
+            <h3>Souvent aujourd'hui</h3>
+            <ul>
+              <li>Un prestataire par domaine : réseau, téléphonie, postes, sécurité, alarme et vidéosurveillance.</li>
+              <li>En cas de panne, chacun renvoie la responsabilité vers l'autre.</li>
+              <li>Autant de contrats, de factures et de contacts à suivre.</li>
+            </ul>
+          </div>
+          <div class="apres">
+            <h3>Avec MAZ-AVA</h3>
+            <ul>
+              <li>Un seul contact pour l'informatique, le télécom et la sécurité.</li>
+              <li>Un diagnostic complet, sans renvoi entre prestataires.</li>
+              <li>Un seul suivi et une vue d'ensemble de votre système d'information.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="entete">
+        <h2>Ce que nous prenons en charge</h2>
+        <p>Tous les métiers réunis dans une seule offre, du poste de travail à la caméra, de la ligne opérateur au serveur.</p>
+      </div>
+
+      <div class="liste">
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Écran de supervision avec tâches validées, roue dentée et bulle de dialogue"><rect class="bg1" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="nv" x="150" y="70" width="300" height="210" rx="18"/><rect class="wh" x="166" y="86" width="268" height="178" rx="8"/><rect class="nv" x="270" y="280" width="60" height="26"/><rect class="nv" x="230" y="304" width="140" height="14" rx="7"/><rect class="lb" x="182" y="100" width="100" height="12" rx="6"/><circle class="tq" cx="198" cy="140" r="11"/><path class="k-wh" stroke-width="3.5" d="M192 140l5 5 9-10"/><rect class="lb" x="220" y="134" width="130" height="12" rx="6"/><rect class="lt" x="362" y="134" width="54" height="12" rx="6"/><circle class="tq" cx="198" cy="178" r="11"/><path class="k-wh" stroke-width="3.5" d="M192 178l5 5 9-10"/><rect class="lb" x="220" y="172" width="130" height="12" rx="6"/><rect class="lt" x="362" y="172" width="54" height="12" rx="6"/><circle class="tq" cx="198" cy="216" r="11"/><path class="k-wh" stroke-width="3.5" d="M192 216l5 5 9-10"/><rect class="lb" x="220" y="210" width="130" height="12" rx="6"/><rect class="lt" x="362" y="210" width="54" height="12" rx="6"/><g transform="translate(494 276)"><g class="bl"><rect x="-8" y="-44" width="16" height="88" rx="4"/><rect x="-8" y="-44" width="16" height="88" rx="4" transform="rotate(45)"/><rect x="-8" y="-44" width="16" height="88" rx="4" transform="rotate(90)"/><rect x="-8" y="-44" width="16" height="88" rx="4" transform="rotate(135)"/><circle r="31"/></g><circle class="bg1" r="12"/></g><rect class="tq" x="398" y="38" width="124" height="66" rx="20"/><polygon class="tq" points="428,100 452,100 430,124"/><circle class="wh" cx="432" cy="71" r="6"/><circle class="wh" cx="460" cy="71" r="6"/><circle class="wh" cx="488" cy="71" r="6"/></svg></figure>
+          <h3>Infogérance et maintenance</h3>
+          <p>Supervision, support aux utilisateurs et maintenance du parc, avec un interlocuteur technique identifié.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Poste de travail avec écran, ordinateur portable et imprimante"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="gr" x="60" y="332" width="480" height="10" rx="5"/><rect class="nv" x="170" y="66" width="230" height="160" rx="14"/><rect class="lb" x="184" y="80" width="202" height="130" rx="6"/><rect class="bl" x="196" y="94" width="86" height="12" rx="6"/><rect class="tq" x="196" y="118" width="130" height="10" rx="5"/><rect class="gr" x="196" y="140" width="160" height="10" rx="5"/><rect class="gr" x="196" y="162" width="110" height="10" rx="5"/><rect class="nv" x="272" y="226" width="26" height="46" rx="4"/><rect class="nv" x="240" y="268" width="90" height="12" rx="6"/><rect class="nv" x="62" y="262" width="110" height="70" rx="8"/><rect class="wh" x="74" y="274" width="86" height="42" rx="4"/><rect class="bl" x="86" y="284" width="40" height="8" rx="4"/><rect class="nv2" x="48" y="330" width="138" height="12" rx="6"/><rect class="nv" x="396" y="252" width="130" height="80" rx="12"/><rect class="wh" x="414" y="226" width="94" height="34" rx="4"/><rect class="lb" x="418" y="292" width="86" height="40" rx="4"/><circle class="tq" cx="506" cy="272" r="6"/></svg></figure>
+          <h3>Bureautique et postes de travail</h3>
+          <p>Ordinateurs, imprimantes et copieurs, messagerie et outils collaboratifs : fourniture, installation et support au quotidien.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Réseau d'entreprise : un commutateur relié à un ordinateur, un bâtiment, un téléphone et un serveur"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="300" y1="200" x2="110" y2="90"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="300" y1="200" x2="490" y2="90"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="300" y1="200" x2="110" y2="310"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="300" y1="200" x2="490" y2="310"/><rect class="nv" x="235" y="165" width="130" height="76" rx="16"/><rect class="tq" x="249" y="208" width="20" height="18" rx="4"/><rect class="tq" x="275" y="208" width="20" height="18" rx="4"/><rect class="tq" x="301" y="208" width="20" height="18" rx="4"/><rect class="tq" x="327" y="208" width="20" height="18" rx="4"/><circle class="am" cx="259" cy="187" r="5"/><circle class="tq" cx="285" cy="187" r="5"/><circle class="tq" cx="311" cy="187" r="5"/><path class="k-tq" stroke-width="6" opacity="0.95" d="M284.4 134.4A22 22 0 0 1 315.6 134.4"/><path class="k-tq" stroke-width="6" opacity="0.7" d="M271.7 121.7A40 40 0 0 1 328.3 121.7"/><path class="k-tq" stroke-width="6" opacity="0.45" d="M259.0 109.0A58 58 0 0 1 341.0 109.0"/><circle class="bl" cx="300" cy="150" r="7"/><circle cx="110" cy="90" r="44" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="490" cy="90" r="44" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="110" cy="310" r="44" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><circle cx="490" cy="310" r="44" fill="#fff" stroke="#DCE8FF" stroke-width="5"/><rect class="nv" x="88" y="74" width="44" height="29" rx="4"/><rect class="nv" x="80" y="106" width="60" height="7" rx="3.5"/><rect class="nv" x="474" y="66" width="32" height="46" rx="4"/><rect class="wh" x="480" y="73" width="7" height="7"/><rect class="wh" x="480" y="86" width="7" height="7"/><rect class="wh" x="480" y="99" width="7" height="7"/><rect class="wh" x="493" y="73" width="7" height="7"/><rect class="wh" x="493" y="86" width="7" height="7"/><rect class="wh" x="493" y="99" width="7" height="7"/><rect class="nv" x="97" y="290" width="26" height="42" rx="6"/><rect class="tq" x="102" y="297" width="16" height="22" rx="2"/><rect class="nv" x="470" y="292" width="40" height="15" rx="3"/><rect class="nv" x="470" y="311" width="40" height="15" rx="3"/><circle class="tq" cx="478" cy="299.5" r="2.5"/><circle class="tq" cx="478" cy="318.5" r="2.5"/></svg></figure>
+          <h3>Réseaux</h3>
+          <p>Conception, déploiement et sécurisation des réseaux locaux, du Wi-Fi et des liaisons entre sites.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Téléphone IP de bureau avec ondes sonores et indicateur de signal"><rect class="bg1" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="bl" x="90" y="130" width="14" height="24" rx="4"/><rect class="bl" x="112" y="112" width="14" height="42" rx="4"/><rect class="bl" x="134" y="94" width="14" height="60" rx="4"/><rect class="gr" x="156" y="76" width="14" height="78" rx="4"/><rect class="wh" x="80" y="290" width="84" height="40" rx="20"/><text class="tx" x="122" y="318" text-anchor="middle" font-size="20" fill="#0E1D3F">SIP</text><rect class="nv" x="200" y="150" width="200" height="170" rx="22"/><rect class="lt" x="224" y="172" width="92" height="50" rx="8"/><rect class="nv" x="236" y="186" width="52" height="8" rx="4" opacity=".7"/><rect class="nv" x="236" y="202" width="34" height="8" rx="4" opacity=".4"/><circle class="lb" cx="240" cy="246" r="9"/><circle class="lb" cx="270" cy="246" r="9"/><circle class="lb" cx="300" cy="246" r="9"/><circle class="lb" cx="240" cy="270" r="9"/><circle class="lb" cx="270" cy="270" r="9"/><circle class="lb" cx="300" cy="270" r="9"/><circle class="lb" cx="240" cy="294" r="9"/><circle class="lb" cx="270" cy="294" r="9"/><circle class="lb" cx="300" cy="294" r="9"/><rect class="bl" x="336" y="178" width="40" height="14" rx="7"/><rect class="bl" x="336" y="204" width="40" height="14" rx="7"/><rect class="bl" x="336" y="230" width="40" height="14" rx="7"/><rect class="bl" x="186" y="116" width="228" height="34" rx="17"/><circle class="bl" cx="208" cy="146" r="22"/><circle class="bl" cx="392" cy="146" r="22"/><path class="k-tq" stroke-width="7" opacity="1" d="M469.3 212.0A30 30 0 0 1 469.3 258.0"/><path class="k-tq" stroke-width="7" opacity="0.7" d="M483.4 195.2A52 52 0 0 1 483.4 274.8"/><path class="k-tq" stroke-width="7" opacity="0.45" d="M497.6 178.3A74 74 0 0 1 497.6 291.7"/></svg></figure>
+          <h3>Téléphonie opérateur</h3>
+          <p>Opérateurs, trunks SIP, portabilité des numéros et migration vers 3CX : toute la voix de l'entreprise, gérée de bout en bout.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nuage informatique avec flèches d'échange de données et serveur"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><g fill="#fff" opacity=".9"><rect x="70" y="100" width="110" height="34" rx="17"/><circle cx="108" cy="100" r="22"/><circle cx="142" cy="92" r="26"/></g><g class="bl"><rect x="205" y="190" width="250" height="66" rx="33"/><circle cx="265" cy="188" r="52"/><circle cx="335" cy="152" r="70"/><circle cx="400" cy="190" r="48"/></g><circle fill="#fff" opacity=".35" cx="318" cy="120" r="8"/><circle fill="#fff" opacity=".25" cx="352" cy="104" r="5"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="270" y1="266" x2="270" y2="290"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="345" y1="266" x2="345" y2="290"/><circle cx="270" cy="318" r="26" fill="#fff"/><path class="k-tq" stroke-width="6" d="M270 331V305M259 316l11-11 11 11"/><circle cx="345" cy="318" r="26" fill="#fff"/><path class="k-bl" stroke-width="6" d="M345 305v26M334 320l11 11 11-11"/><rect class="nv" x="472" y="236" width="76" height="28" rx="7"/><rect class="nv" x="472" y="270" width="76" height="28" rx="7"/><circle class="tq" cx="488" cy="250" r="4"/><circle class="tq" cx="488" cy="284" r="4"/></svg></figure>
+          <h3>Cloud</h3>
+          <p>Migration et exploitation de Microsoft 365 et des environnements cloud, sauvegardes comprises.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bouclier de protection avec coche de validation et cadenas"><rect class="bg1" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><path class="nv" d="M300 56L412 98V196C412 266 366 318 300 344C234 318 188 266 188 196V98Z"/><path class="bl" d="M300 84L388 116V196C388 252 354 292 300 316C246 292 212 252 212 196V116Z"/><path class="k-wh" stroke-width="16" d="M254 196L288 230L348 160"/><path class="k-gr" stroke-width="5" d="M412 150H470V108"/><circle class="tq" cx="470" cy="104" r="9"/><path class="k-gr" stroke-width="5" d="M412 240H504V286"/><circle class="am" cx="504" cy="292" r="9"/><path class="k-gr" stroke-width="5" d="M188 270H120V316"/><circle class="tq" cx="120" cy="322" r="9"/><rect class="wh" x="82" y="162" width="72" height="58" rx="12"/><path class="k-nv" stroke-width="8" d="M97 162v-18a21 21 0 0 1 42 0v18"/><circle class="nv" cx="118" cy="188" r="7"/><rect class="nv" x="115" y="190" width="6" height="16" rx="3"/></svg></figure>
+          <h3>Cybersécurité</h3>
+          <p>Audits, protection des postes, pare-feu, chiffrement et sauvegardes, pour réduire les risques et savoir ce qui est en place.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Caméra de vidéosurveillance et lecteur de badge pour le contrôle d'accès"><rect class="bg1" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="nv" x="70" y="60" width="140" height="18" rx="9"/><rect class="nv2" x="190" y="68" width="14" height="60" rx="6"/><g transform="rotate(14 330 130)"><rect class="nv" x="210" y="96" width="210" height="84" rx="22"/><rect class="nv2" x="400" y="108" width="52" height="60" rx="10"/><circle class="lb" cx="288" cy="138" r="30"/><circle class="bl" cx="288" cy="138" r="18"/><circle class="wh" cx="282" cy="132" r="5"/><circle class="am" cx="378" cy="118" r="5"/></g><path class="k-tq" fill="none" stroke-width="5" stroke-linecap="round" d="M470 170Q500 200 470 230M492 160Q536 200 492 240"/><rect class="nv" x="110" y="238" width="120" height="116" rx="18"/><rect class="lb" x="128" y="256" width="84" height="40" rx="8"/><circle class="tq" cx="170" cy="276" r="10"/><rect class="wh" x="140" y="312" width="60" height="26" rx="6"/><rect class="bl" x="150" y="320" width="40" height="10" rx="5"/><rect class="wh" x="330" y="262" width="120" height="76" rx="10"/><rect class="bl" x="344" y="276" width="46" height="48" rx="6"/><circle class="wh" cx="367" cy="292" r="7"/><rect class="wh" x="353" y="302" width="28" height="14" rx="7"/><rect class="tq" x="402" y="278" width="34" height="8" rx="4"/><rect class="gr" x="402" y="298" width="34" height="8" rx="4"/></svg></figure>
+          <h3>Sécurité électronique</h3>
+          <p>Vidéosurveillance, contrôle d'accès, alarme anti-intrusion et interphonie : études, installation et maintenance sur vos sites.</p>
+        </article>
+        <article class="service">
+          <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Deux baies de serveurs reliées par des câbles"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="gr" x="70" y="330" width="460" height="10" rx="5"/><rect class="nv" x="130" y="60" width="150" height="270" rx="14"/><rect class="nv2" x="144" y="76" width="122" height="38" rx="8"/><circle class="tq" cx="160" cy="95" r="5"/><rect fill="#3A4F80" x="176" y="90" width="70" height="10" rx="5"/><rect class="nv2" x="144" y="126" width="122" height="38" rx="8"/><circle class="tq" cx="160" cy="145" r="5"/><rect fill="#3A4F80" x="176" y="140" width="70" height="10" rx="5"/><rect class="nv2" x="144" y="176" width="122" height="38" rx="8"/><circle class="tq" cx="160" cy="195" r="5"/><rect fill="#3A4F80" x="176" y="190" width="70" height="10" rx="5"/><rect class="nv2" x="144" y="226" width="122" height="38" rx="8"/><circle class="am" cx="160" cy="245" r="5"/><rect fill="#3A4F80" x="176" y="240" width="70" height="10" rx="5"/><rect class="nv2" x="144" y="276" width="122" height="38" rx="8"/><circle class="tq" cx="160" cy="295" r="5"/><rect fill="#3A4F80" x="176" y="290" width="70" height="10" rx="5"/><rect class="nv" x="320" y="90" width="150" height="240" rx="14"/><rect class="nv2" x="334" y="106" width="122" height="38" rx="8"/><circle class="tq" cx="350" cy="125" r="5"/><rect fill="#3A4F80" x="366" y="120" width="70" height="10" rx="5"/><rect class="nv2" x="334" y="156" width="122" height="38" rx="8"/><circle class="tq" cx="350" cy="175" r="5"/><rect fill="#3A4F80" x="366" y="170" width="70" height="10" rx="5"/><rect class="nv2" x="334" y="206" width="122" height="38" rx="8"/><circle class="tq" cx="350" cy="225" r="5"/><rect fill="#3A4F80" x="366" y="220" width="70" height="10" rx="5"/><rect class="nv2" x="334" y="256" width="122" height="38" rx="8"/><circle class="am" cx="350" cy="275" r="5"/><rect fill="#3A4F80" x="366" y="270" width="70" height="10" rx="5"/><path class="k-tq" stroke-width="6" d="M280 150C305 150 295 180 320 180"/><path class="k-bl" stroke-width="6" d="M280 200C305 200 295 230 320 230"/><path class="k-am" stroke-width="6" d="M280 250C305 250 295 280 320 280"/><circle cx="520" cy="110" r="36" fill="#fff"/><polygon class="am" points="526,88 504,118 518,118 512,142 538,106 523,106"/></svg></figure>
+          <h3>Infrastructure</h3>
+          <p>Serveurs, virtualisation et locaux techniques : architecture, mise en place et modernisation.</p>
+        </article>
+      </div>
+      <p class="invitation-ligne">Un besoin à cheval sur plusieurs domaines ?<a href="mailto:contact@maz-ava.fr">Décrivez-le nous</a></p>
+    </div>
+  </section>
+
+  <section class="ia" id="ia">
+    <div class="wrap">
+      <div>
+        <h2>L'intelligence artificielle, appliquée à vos appels et à vos processus</h2>
+        <p>Notre offre à 360° inclut l'IA appliquée à la voix et au travail quotidien, reliée à votre téléphonie et à votre système d'information.</p>
+        <ul class="ia-liste">
+          <li>
+            <h3>Agent téléphonique IA</h3>
+            <p>Un agent vocal qui décroche, comprend la demande, répond aux questions courantes et transmet à la bonne personne.</p>
+          </li>
+          <li>
+            <h3>Transcription des appels (STT)</h3>
+            <p>Vos appels et vos réunions transcrits automatiquement en texte, faciles à relire, à rechercher et à archiver.</p>
+          </li>
+          <li>
+            <h3>Synthèse vocale (TTS)</h3>
+            <p>Messages d'accueil, serveurs vocaux et annonces avec une voix de synthèse naturelle, modifiable à tout moment.</p>
+          </li>
+          <li>
+            <h3>Audit IA pour les entreprises</h3>
+            <p>Nous repérons où l'IA vous fait réellement gagner du temps, et où elle ne vaut pas l'investissement, avant toute dépense.</p>
+          </li>
+        </ul>
+      </div>
+      <figure><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="La voix est comprise par l'intelligence artificielle, puis transcrite en texte et restituée en voix de synthèse"><rect class="bg2" width="600" height="400"/><circle cx="520" cy="60" r="100" fill="#fff" opacity=".55"/><circle cx="60" cy="350" r="70" fill="#fff" opacity=".45"/><rect class="bl" x="64" y="185.0" width="9" height="30" rx="4.5"/><rect class="tq" x="80" y="170.0" width="9" height="60" rx="4.5"/><rect class="bl" x="96" y="155.0" width="9" height="90" rx="4.5"/><rect class="tq" x="112" y="175.0" width="9" height="50" rx="4.5"/><rect class="bl" x="128" y="145.0" width="9" height="110" rx="4.5"/><rect class="tq" x="144" y="165.0" width="9" height="70" rx="4.5"/><rect class="bl" x="160" y="180.0" width="9" height="40" rx="4.5"/><rect class="tq" x="176" y="160.0" width="9" height="80" rx="4.5"/><rect class="bl" x="192" y="185.0" width="9" height="30" rx="4.5"/><line class="k-gr" stroke-width="5" stroke-dasharray="1 12" x1="210" y1="200" x2="244" y2="200"/><rect class="nv" x="250" y="146" width="108" height="108" rx="22"/><rect class="bl" x="238" y="166" width="14" height="8" rx="4"/><rect class="bl" x="356" y="166" width="14" height="8" rx="4"/><rect class="bl" x="238" y="192" width="14" height="8" rx="4"/><rect class="bl" x="356" y="192" width="14" height="8" rx="4"/><rect class="bl" x="238" y="218" width="14" height="8" rx="4"/><rect class="bl" x="356" y="218" width="14" height="8" rx="4"/><rect class="bl" x="276" y="134" width="8" height="14" rx="4"/><rect class="bl" x="276" y="252" width="8" height="14" rx="4"/><rect class="bl" x="300" y="134" width="8" height="14" rx="4"/><rect class="bl" x="300" y="252" width="8" height="14" rx="4"/><rect class="bl" x="324" y="134" width="8" height="14" rx="4"/><rect class="bl" x="324" y="252" width="8" height="14" rx="4"/><text class="tx" x="304" y="215" text-anchor="middle" font-size="44" fill="#fff">IA</text><path class="k-gr" stroke-width="5" stroke-dasharray="1 12" d="M366 186H410V130"/><path class="k-gr" stroke-width="5" stroke-dasharray="1 12" d="M366 214H410V270"/><rect class="wh" x="410" y="64" width="140" height="106" rx="14"/><rect class="tq" x="426" y="82" width="60" height="9" rx="4.5"/><rect class="lb" x="426" y="102" width="108" height="9" rx="4.5"/><rect class="lb" x="426" y="122" width="96" height="9" rx="4.5"/><rect class="lb" x="426" y="142" width="70" height="9" rx="4.5"/><rect class="tq" x="410" y="236" width="140" height="74" rx="20"/><polygon class="tq" points="432,308 458,308 436,332"/><rect class="wh" x="440" y="266.0" width="7" height="14" rx="3.5"/><rect class="wh" x="454" y="259.0" width="7" height="28" rx="3.5"/><rect class="wh" x="468" y="253.0" width="7" height="40" rx="3.5"/><rect class="wh" x="482" y="261.0" width="7" height="24" rx="3.5"/><rect class="wh" x="496" y="256.0" width="7" height="34" rx="3.5"/><rect class="wh" x="510" y="264.0" width="7" height="18" rx="3.5"/><rect class="wh" x="524" y="268.0" width="7" height="10" rx="3.5"/></svg></figure>
+    </div>
+  </section>
+
+  <section class="methode" id="methode">
+    <div class="wrap">
+      <div class="entete">
+        <h2>Comment nous travaillons</h2>
+        <p>Une démarche en quatre étapes, la même quel que soit le domaine concerné.</p>
+      </div>
+      <ol class="etapes">
+        <li>
+          <h3>Audit</h3>
+          <p>Nous faisons l'inventaire de l'existant : postes, réseau, téléphonie, sécurité et contrats.</p>
+        </li>
+        <li>
+          <h3>Plan d'action</h3>
+          <p>Vous recevez un plan priorisé et un devis détaillé, rédigés sans jargon.</p>
+        </li>
+        <li>
+          <h3>Mise en œuvre</h3>
+          <p>Nous intervenons selon un planning validé avec vous, en limitant les coupures.</p>
+        </li>
+        <li>
+          <h3>Suivi</h3>
+          <p>Supervision, comptes rendus réguliers et points d'amélioration dans la durée.</p>
+        </li>
+      </ol>
+      <div class="engagements">
+        <h3>Des experts, et un langage que chacun comprend</h3>
+        <ul>
+          <li><strong>Un constat écrit</strong><span>Chaque audit donne lieu à un état des lieux documenté : ce qui est en place, ce qui présente un risque, ce qui est prioritaire.</span></li>
+          <li><strong>Des mots simples</strong><span>Nous expliquons les termes techniques et les choix possibles, pour que vous décidiez en connaissance de cause.</span></li>
+          <li><strong>Un seul responsable</strong><span>Un interlocuteur identifié suit votre dossier du premier échange à l'exploitation, tous domaines confondus.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="environnements" id="environnements">
+    <div class="wrap">
+      <div class="entete">
+        <h2>Les environnements sur lesquels nous intervenons</h2>
+        <p>Nous intervenons sur les solutions que les entreprises utilisent déjà, sans les remplacer par principe.</p>
+      </div>
+      <div class="marques">
+        <div class="marques-groupe">
+          <h3>Pare-feu</h3>
+          <ul>
+            <li><img src="logos/zyxel.svg" alt="" loading="lazy" onerror="this.remove()"><span>Zyxel</span></li>
+            <li><img src="logos/sonicwall.svg" alt="" loading="lazy" onerror="this.remove()"><span>SonicWall</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Réseau et Wi-Fi</h3>
+          <ul>
+            <li><img src="logos/unifi.svg" alt="" loading="lazy" onerror="this.remove()"><span>UniFi</span></li>
+            <li><img src="logos/hpe.svg" alt="" loading="lazy" onerror="this.remove()"><span>HPE</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Sécurité des postes et de la messagerie</h3>
+          <ul>
+            <li><img src="logos/sentinelone.svg" alt="" loading="lazy" onerror="this.remove()"><span>SentinelOne</span></li>
+            <li><img src="logos/bitdefender.svg" alt="" loading="lazy" onerror="this.remove()"><span>Bitdefender</span></li>
+            <li><img src="logos/hornetsecurity.svg" alt="" loading="lazy" onerror="this.remove()"><span>Hornetsecurity</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Téléphonie</h3>
+          <ul>
+            <li><img src="logos/3cx.svg" alt="" loading="lazy" onerror="this.remove()"><span>3CX</span></li>
+            <li><img src="logos/yealink.svg" alt="" loading="lazy" onerror="this.remove()"><span>Yealink</span></li>
+            <li><img src="logos/yeastar.svg" alt="" loading="lazy" onerror="this.remove()"><span>Yeastar</span></li>
+          </ul>
+        </div>
+        <div class="marques-groupe">
+          <h3>Cloud</h3>
+          <ul>
+            <li><img src="logos/microsoft.svg" alt="" loading="lazy" onerror="this.remove()"><span>Microsoft 365 et Azure</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="questions" id="questions">
+    <div class="wrap">
+      <div class="entete">
+        <h2>Les questions que l'on nous pose</h2>
+      </div>
+      <div>
+        <details>
+          <summary>Je travaille déjà avec d'autres prestataires. Comment se passe la reprise ?</summary>
+          <p>Nous partons d'un audit de l'existant, puis nous proposons une reprise par étapes, domaine par domaine. Le calendrier se décide avec vous.</p>
+        </details>
+        <details>
+          <summary>Puis-je ne confier qu'un domaine pour commencer ?</summary>
+          <p>Oui. Vous pouvez démarrer par un sujet précis, comme la téléphonie ou la sécurité, et élargir ensuite si vous le souhaitez.</p>
+        </details>
+        <details>
+          <summary>Comment une prestation est-elle chiffrée ?</summary>
+          <p>Après l'audit, nous vous remettons un devis détaillé. Rien ne démarre sans votre validation.</p>
+        </details>
+        <details>
+          <summary>À qui m'adresser en cas d'incident ?</summary>
+          <p>À votre interlocuteur unique, quel que soit le domaine concerné. Les modalités de support sont précisées dans votre contrat.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="appel" id="contact">
+    <div class="wrap">
+      <div class="appel-texte">
+        <h2>Parlons de votre projet</h2>
+        <p>Décrivez votre besoin : nous revenons vers vous avec un diagnostic et une proposition adaptée à votre structure.</p>
+        <a class="btn btn-plein appel-tel" href="tel:+33199001234">Appeler le 01 99 00 12 34</a>
+        <dl class="coordonnees">
+          <div><dt>Téléphone</dt><dd><a href="tel:+33199001234">01 99 00 12 34</a></dd></div>
+          <div><dt>E-mail</dt><dd><a href="mailto:contact@maz-ava.fr">contact@maz-ava.fr</a></dd></div>
+        </dl>
+      </div>
+      <form class="formulaire" id="formulaire" novalidate>
+        <div class="champs-duo">
+          <div class="champ"><label for="f-nom">Nom</label><input id="f-nom" name="nom" type="text" autocomplete="family-name" required></div>
+          <div class="champ"><label for="f-prenom">Prénom</label><input id="f-prenom" name="prenom" type="text" autocomplete="given-name" required></div>
+        </div>
+        <div class="champ"><label for="f-mail">Adresse e-mail</label><input id="f-mail" name="mail" type="email" autocomplete="email" required></div>
+        <div class="champ"><label for="f-message">Message</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
+        <p class="formulaire-note">Les informations saisies servent uniquement à traiter votre demande.</p>
+        <p class="formulaire-erreur" id="f-erreur" role="alert" hidden></p>
+        <button class="btn btn-plein" type="submit">Envoyer la demande</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="pied">
+      <div>
+        <a class="brand" href="#accueil" aria-label="MAZ-AVA Technologies, accueil">
+          <svg aria-hidden="true"><use href="#marque"/></svg>
+          <span class="brand-name">MAZ-AVA<small>Technologies</small></span>
+        </a>
+        <p>Des experts IT, télécom et sécurité, pour des entreprises qui veulent des réponses claires.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Infogérance et maintenance</a></li>
+          <li><a href="#services">Bureautique et postes</a></li>
+          <li><a href="#services">Réseaux</a></li>
+          <li><a href="#services">Téléphonie opérateur</a></li>
+          <li><a href="#services">Cloud</a></li>
+          <li><a href="#services">Cybersécurité</a></li>
+          <li><a href="#services">Sécurité électronique</a></li>
+          <li><a href="#services">Infrastructure</a></li>
+          <li><a href="#ia">Intelligence artificielle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+33199001234">01 99 00 12 34</a></li>
+          <li><a href="mailto:contact@maz-ava.fr">contact@maz-ava.fr</a></li>
+          <li><a href="#methode">Notre méthode</a></li>
+          <li><a href="#questions">Questions fréquentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2026 MAZ-AVA Technologies. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<div class="chat" id="chat">
+  <section class="chat-panneau" id="chat-panneau" role="dialog" aria-label="Assistant MAZ-AVA" hidden>
+    <header class="chat-entete">
+      <svg aria-hidden="true"><use href="#marque"/></svg>
+      <div><strong>Assistant MAZ-AVA</strong><span>Réponses guidées, e-mail pour le reste</span></div>
+      <button class="chat-fermer" type="button" aria-label="Fermer l'assistant">&times;</button>
+    </header>
+    <div class="chat-fil" id="chat-fil" role="log" aria-live="polite"></div>
+    <form class="chat-saisie" id="chat-form">
+      <label class="sr" for="chat-texte">Votre question</label>
+      <input id="chat-texte" type="text" maxlength="300" autocomplete="off" placeholder="Posez votre question">
+      <button type="submit">Envoyer</button>
+    </form>
+    <p class="chat-note">Cet assistant répond aux questions courantes à partir du contenu du site. Il ne remplace pas un échange avec l'équipe.</p>
+  </section>
+  <button class="chat-bouton" id="chat-bouton" type="button" aria-expanded="false" aria-controls="chat-panneau">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3.6a.6.6 0 0 1-1-.46V16h-.3A2.5 2.5 0 0 1 4 13.5z" fill="#0E1D3F"/><circle cx="9" cy="9.5" r="1.2" fill="#19D3C5"/><circle cx="12" cy="9.5" r="1.2" fill="#19D3C5"/><circle cx="15" cy="9.5" r="1.2" fill="#19D3C5"/></svg>
+    <span>Une question ?</span>
+  </button>
+</div>
+
+<script>
+(function () {
+  var bouton = document.querySelector('.burger');
+  var menu = document.getElementById('menu');
+  function fermer() {
+    menu.classList.remove('ouvert');
+    bouton.setAttribute('aria-expanded', 'false');
+    bouton.setAttribute('aria-label', 'Ouvrir le menu');
+  }
+  bouton.addEventListener('click', function () {
+    var ouvert = menu.classList.toggle('ouvert');
+    bouton.setAttribute('aria-expanded', String(ouvert));
+    bouton.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') fermer(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fermer(); });
+})();
+
+(function () {
+  var ouvrirBtn = document.getElementById('chat-bouton');
+  var panneau = document.getElementById('chat-panneau');
+  var fil = document.getElementById('chat-fil');
+  var form = document.getElementById('chat-form');
+  var champ = document.getElementById('chat-texte');
+  var fermerBtn = panneau.querySelector('.chat-fermer');
+  var initialise = false;
+
+  var SUJETS = {
+    services: { libelle: 'Nos services', texte: "Nous couvrons huit domaines : infogérance et maintenance, bureautique et postes de travail, réseaux, téléphonie opérateur, cloud, cybersécurité, sécurité électronique et infrastructure. Nous proposons aussi des services d'intelligence artificielle.", lien: ['#services', 'Voir les services'] },
+    infogerance: { libelle: 'Infogérance', texte: "Supervision, support aux utilisateurs et maintenance du parc, avec un interlocuteur technique identifié.", lien: ['#services', 'Voir les services'] },
+    reseaux: { libelle: 'Réseaux', texte: "Conception, déploiement et sécurisation des réseaux locaux, du Wi-Fi et des liaisons entre sites.", lien: ['#services', 'Voir les services'] },
+    telephonie: { libelle: 'Téléphonie opérateur', texte: "Nous gérons la voix de l'entreprise de bout en bout : opérateurs, trunks SIP, portabilité des numéros et migration vers 3CX.", lien: ['#services', 'Voir les services'] },
+    cloud: { libelle: 'Cloud', texte: "Migration et exploitation de Microsoft 365 et des environnements cloud, sauvegardes comprises.", lien: ['#services', 'Voir les services'] },
+    securite: { libelle: 'Cybersécurité', texte: "Audits, protection des postes, pare-feu, chiffrement et sauvegardes, pour réduire les risques et savoir ce qui est en place.", lien: ['#services', 'Voir les services'] },
+    bureautique: { libelle: 'Bureautique', texte: "Ordinateurs, imprimantes et copieurs, messagerie et outils collaboratifs : fourniture, installation et support au quotidien.", lien: ['#services', 'Voir les services'] },
+    securitee: { libelle: 'Sécurité électronique', texte: "Vidéosurveillance, contrôle d'accès, alarme anti-intrusion et interphonie : études, installation et maintenance sur vos sites.", lien: ['#services', 'Voir les services'] },
+    infra: { libelle: 'Infrastructure', texte: "Serveurs, virtualisation et locaux techniques : architecture, mise en place et modernisation.", lien: ['#services', 'Voir les services'] },
+    ia: { libelle: 'Intelligence artificielle', texte: "Nous proposons des agents téléphoniques IA, la transcription des appels (STT), la synthèse vocale (TTS) et des audits IA pour les entreprises.", lien: ['#ia', "Voir l'offre IA"] },
+    methode: { libelle: 'Comment ça se passe ?', texte: "Quatre étapes : audit de l'existant, plan d'action avec devis détaillé, mise en œuvre selon un planning validé avec vous, puis suivi dans la durée.", lien: ['#methode', 'Voir la méthode'] },
+    devis: { libelle: 'Devis et tarifs', texte: "Après l'audit, nous vous remettons un devis détaillé. Rien ne démarre sans votre validation. Les tarifs ne sont pas affichés sur le site : ils dépendent de votre situation." },
+    contact: { libelle: "Parler à l'équipe", texte: "Décrivez votre situation en quelques lignes : nombre de sites, outils en place, difficultés rencontrées. L'équipe revient vers vous pour organiser un premier échange." }
+  };
+  var PUCES = ['services', 'telephonie', 'ia', 'methode', 'devis', 'contact'];
+  var MOTS = [
+    ['ia', /\bia\b|intelligence|agent|transcri|\bstt\b|\btts\b|vocal|voix|chatbot/],
+    ['telephonie', /telephon|3cx|\bsip\b|operateur|portabilit|numero|standard/],
+    ['securitee', /videosurveillance|camera|alarme|intrusion|controle d'acces|badge|interphone|securite electronique/],
+    ['bureautique', /bureautique|poste|ordinateur|imprimante|copieur|messagerie|outlook/],
+    ['securite', /securite|cyber|pare-feu|antivirus|chiffrement|audit/],
+    ['reseaux', /reseau|wi-?fi|\blan\b|\bvpn\b/],
+    ['cloud', /cloud|microsoft|365|azure|sauvegarde/],
+    ['infra', /infrastructure|serveur|virtualisation|salle technique/],
+    ['infogerance', /infogerance|maintenance|support|supervision|parc/],
+    ['methode', /methode|etape|comment ca|deroul|processus/],
+    ['devis', /devis|prix|tarif|cout|budget/],
+    ['contact', /contact|rendez|rdv|appel|mail|humain|parler|joindre|equipe/],
+    ['services', /service|offre|proposez|faites/]
+  ];
+
+  function normaliser(t) { return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function defiler() { fil.scrollTop = fil.scrollHeight; }
+  function lienMail(question) {
+    var corps = 'Bonjour,\n\n' + (question ? question + '\n\n' : '') + 'Entreprise :\nNombre de sites :\nVotre besoin :\n\nCordialement';
+    return 'mailto:contact@maz-ava.fr?subject=' + encodeURIComponent('Question via le site') + '&body=' + encodeURIComponent(corps);
+  }
+  function dire(texte, qui) {
+    var d = document.createElement('div');
+    d.className = 'msg msg-' + qui;
+    var p = document.createElement('p');
+    p.textContent = texte;
+    d.appendChild(p);
+    fil.appendChild(d);
+    defiler();
+    return d;
+  }
+  function puces(cles, question) {
+    var anciennes = fil.querySelectorAll('.chat-puces');
+    for (var i = 0; i < anciennes.length; i++) anciennes[i].remove();
+    var zone = document.createElement('div');
+    zone.className = 'chat-puces';
+    cles.forEach(function (cle) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = SUJETS[cle].libelle;
+      b.addEventListener('click', function () { dire(SUJETS[cle].libelle, 'user'); repondre(cle, ''); });
+      zone.appendChild(b);
+    });
+    var mail = document.createElement('a');
+    mail.className = 'chat-mail';
+    mail.href = lienMail(question);
+    mail.textContent = "Écrire à l'équipe";
+    zone.appendChild(mail);
+    fil.appendChild(zone);
+    defiler();
+  }
+  function repondre(cle, question) {
+    var s = SUJETS[cle];
+    var d = dire(s.texte, 'bot');
+    if (s.lien) {
+      var a = document.createElement('a');
+      a.className = 'chat-lien';
+      a.href = s.lien[0];
+      a.textContent = s.lien[1];
+      a.addEventListener('click', function () { if (window.innerWidth <= 860) fermer(); });
+      d.appendChild(a);
+    }
+    puces(PUCES.filter(function (c) { return c !== cle; }), question);
+  }
+  function ouvrir() {
+    panneau.hidden = false;
+    ouvrirBtn.setAttribute('aria-expanded', 'true');
+    if (!initialise) {
+      dire("Bonjour, je suis l'assistant du site MAZ-AVA. Je réponds aux questions courantes sur nos services. Pour le reste, l'équipe vous répond par e-mail.", 'bot');
+      puces(PUCES, '');
+      initialise = true;
+    }
+    champ.focus();
+  }
+  function fermer() {
+    panneau.hidden = true;
+    ouvrirBtn.setAttribute('aria-expanded', 'false');
+  }
+  ouvrirBtn.addEventListener('click', function () { if (panneau.hidden) ouvrir(); else fermer(); });
+  fermerBtn.addEventListener('click', function () { fermer(); ouvrirBtn.focus(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !panneau.hidden) { fermer(); ouvrirBtn.focus(); }
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var texte = champ.value.trim();
+    if (!texte) return;
+    dire(texte, 'user');
+    champ.value = '';
+    var n = normaliser(texte);
+    if (/^(bonjour|salut|hello|bonsoir)\b/.test(n)) {
+      dire('Bonjour ! Sur quel sujet puis-je vous renseigner ?', 'bot');
+      puces(PUCES, texte);
+      return;
+    }
+    var trouve = null;
+    for (var i = 0; i < MOTS.length; i++) {
+      if (MOTS[i][1].test(n)) { trouve = MOTS[i][0]; break; }
+    }
+    if (trouve) {
+      repondre(trouve, texte);
+    } else {
+      dire("Je n'ai pas de réponse précise à cette question. Choisissez un sujet ci-dessous, ou écrivez à l'équipe : un humain vous répondra.", 'bot');
+      puces(PUCES, texte);
+    }
+  });
+})();
+(function () {
+  var f = document.getElementById('formulaire');
+  if (!f) return;
+  var err = document.getElementById('f-erreur');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ch = ['f-nom', 'f-prenom', 'f-mail', 'f-message'].map(function (id) { return document.getElementById(id); });
+    var ko = false;
+    ch.forEach(function (c) {
+      var ok = c.value.trim() !== '' && (c.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value.trim()));
+      c.classList.toggle('invalide', !ok);
+      if (!ok) ko = true;
+    });
+    if (ko) { err.textContent = 'Merci de renseigner tous les champs avec une adresse e-mail valide.'; err.hidden = false; return; }
+    err.hidden = true;
+    var corps = 'Nom : ' + ch[0].value.trim() + '\nPrénom : ' + ch[1].value.trim() + '\nE-mail : ' + ch[2].value.trim() + '\n\n' + ch[3].value.trim();
+    window.location.href = 'mailto:contact@maz-ava.fr?subject=' + encodeURIComponent('Demande de contact via le site') + '&body=' + encodeURIComponent(corps);
+  });
+})();
+</script>
+</body>
+</html>
